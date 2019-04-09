@@ -7,9 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C3F29CB6062104174D8F57D /* Pods_PMVP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A2D1D5FF16E625B78A517D /* Pods_PMVP.framework */; };
 		7E1492BE225C342700A26743 /* PMVP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1492B4225C342700A26743 /* PMVP.framework */; };
-		7E1492C3225C342700A26743 /* PMVPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492C2225C342700A26743 /* PMVPTests.swift */; };
 		7E1492C5225C342700A26743 /* PMVP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E1492B7225C342700A26743 /* PMVP.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E1492CF225C344600A26743 /* ViewModelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492CE225C344600A26743 /* ViewModelState.swift */; };
+		7E1492D1225C346400A26743 /* ViewModelIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492D0225C346400A26743 /* ViewModelIntent.swift */; };
+		7E1492D3225C348D00A26743 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492D2225C348D00A26743 /* ViewModel.swift */; };
+		7E1492D5225C387E00A26743 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492D4225C387E00A26743 /* Presenter.swift */; };
+		7E1492D7225C3A3C00A26743 /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492D6225C3A3C00A26743 /* Proxy.swift */; };
+		7E1492D9225C3A5300A26743 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492D8225C3A5300A26743 /* Provider.swift */; };
+		7E1492DB225C3AC700A26743 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492DA225C3AC700A26743 /* LocalStorage.swift */; };
+		7E1492DF225C3DEC00A26743 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492DE225C3DEC00A26743 /* Converter.swift */; };
+		7E1492E1225C3EA900A26743 /* LocalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492E0225C3EA900A26743 /* LocalObject.swift */; };
+		7E1492E3225C3ECB00A26743 /* RemoteObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492E2225C3ECB00A26743 /* RemoteObject.swift */; };
+		7E1492E5225C3F5200A26743 /* RemoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492E4225C3F5200A26743 /* RemoteStorage.swift */; };
+		7E1492E7225C3FC200A26743 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492E6225C3FC200A26743 /* Storage.swift */; };
+		7E1492E9225C3FFE00A26743 /* AbstractObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492E8225C3FFE00A26743 /* AbstractObject.swift */; };
+		7E1492EC225C494400A26743 /* PlaylistProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492EB225C494400A26743 /* PlaylistProxy.swift */; };
+		7E1492EE225C498D00A26743 /* PlaylistLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492ED225C498D00A26743 /* PlaylistLocalStorage.swift */; };
+		7E1492F0225C4A3200A26743 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492EF225C4A3200A26743 /* Playlist.swift */; };
+		7E1492F2225C4B2F00A26743 /* PlaylistRemoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492F1225C4B2F00A26743 /* PlaylistRemoteStorage.swift */; };
+		7E1492F4225C4B7200A26743 /* PlaylistRemoteObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492F3225C4B7200A26743 /* PlaylistRemoteObject.swift */; };
+		7E1492F6225C4BCE00A26743 /* PlaylistProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492F5225C4BCE00A26743 /* PlaylistProvider.swift */; };
+		7E1492F8225C4C3100A26743 /* ProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492F7225C4C3100A26743 /* ProviderTests.swift */; };
+		7E1492FA225C4C9000A26743 /* PlaylistLocalConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492F9225C4C9000A26743 /* PlaylistLocalConverter.swift */; };
+		7E1492FC225C4DB900A26743 /* PlaylistRemoteConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492FB225C4DB900A26743 /* PlaylistRemoteConverter.swift */; };
+		87699565589E244EDB5A10C3 /* Pods_PMVPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA91BD3B69C46666D69C570 /* Pods_PMVPTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +50,35 @@
 		7E1492B7225C342700A26743 /* PMVP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMVP.h; sourceTree = "<group>"; };
 		7E1492B8225C342700A26743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E1492BD225C342700A26743 /* PMVPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PMVPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E1492C2225C342700A26743 /* PMVPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMVPTests.swift; sourceTree = "<group>"; };
 		7E1492C4225C342700A26743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E1492CE225C344600A26743 /* ViewModelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelState.swift; sourceTree = "<group>"; };
+		7E1492D0225C346400A26743 /* ViewModelIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelIntent.swift; sourceTree = "<group>"; };
+		7E1492D2225C348D00A26743 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		7E1492D4225C387E00A26743 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		7E1492D6225C3A3C00A26743 /* Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
+		7E1492D8225C3A5300A26743 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		7E1492DA225C3AC700A26743 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		7E1492DE225C3DEC00A26743 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		7E1492E0225C3EA900A26743 /* LocalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalObject.swift; sourceTree = "<group>"; };
+		7E1492E2225C3ECB00A26743 /* RemoteObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteObject.swift; sourceTree = "<group>"; };
+		7E1492E4225C3F5200A26743 /* RemoteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteStorage.swift; sourceTree = "<group>"; };
+		7E1492E6225C3FC200A26743 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		7E1492E8225C3FFE00A26743 /* AbstractObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractObject.swift; sourceTree = "<group>"; };
+		7E1492EB225C494400A26743 /* PlaylistProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistProxy.swift; sourceTree = "<group>"; };
+		7E1492ED225C498D00A26743 /* PlaylistLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistLocalStorage.swift; sourceTree = "<group>"; };
+		7E1492EF225C4A3200A26743 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		7E1492F1225C4B2F00A26743 /* PlaylistRemoteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistRemoteStorage.swift; sourceTree = "<group>"; };
+		7E1492F3225C4B7200A26743 /* PlaylistRemoteObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistRemoteObject.swift; sourceTree = "<group>"; };
+		7E1492F5225C4BCE00A26743 /* PlaylistProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistProvider.swift; sourceTree = "<group>"; };
+		7E1492F7225C4C3100A26743 /* ProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTests.swift; sourceTree = "<group>"; };
+		7E1492F9225C4C9000A26743 /* PlaylistLocalConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistLocalConverter.swift; sourceTree = "<group>"; };
+		7E1492FB225C4DB900A26743 /* PlaylistRemoteConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistRemoteConverter.swift; sourceTree = "<group>"; };
+		80A2D1D5FF16E625B78A517D /* Pods_PMVP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PMVP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A122AAE1F8EA9856A95506AB /* Pods-PMVP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMVP.release.xcconfig"; path = "Target Support Files/Pods-PMVP/Pods-PMVP.release.xcconfig"; sourceTree = "<group>"; };
+		A6C075ED703E994EC6DD2A7C /* Pods-PMVPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMVPTests.release.xcconfig"; path = "Target Support Files/Pods-PMVPTests/Pods-PMVPTests.release.xcconfig"; sourceTree = "<group>"; };
+		B93B5317989063155797BEC6 /* Pods-PMVP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMVP.debug.xcconfig"; path = "Target Support Files/Pods-PMVP/Pods-PMVP.debug.xcconfig"; sourceTree = "<group>"; };
+		DE3BDE828E7BF7545B70A030 /* Pods-PMVPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMVPTests.debug.xcconfig"; path = "Target Support Files/Pods-PMVPTests/Pods-PMVPTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FFA91BD3B69C46666D69C570 /* Pods_PMVPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PMVPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C3F29CB6062104174D8F57D /* Pods_PMVP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,18 +95,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E1492BE225C342700A26743 /* PMVP.framework in Frameworks */,
+				87699565589E244EDB5A10C3 /* Pods_PMVPTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57C944A0C83B691D2BFB2F8E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80A2D1D5FF16E625B78A517D /* Pods_PMVP.framework */,
+				FFA91BD3B69C46666D69C570 /* Pods_PMVPTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7E1492AA225C342700A26743 = {
 			isa = PBXGroup;
 			children = (
 				7E1492B6225C342700A26743 /* PMVP */,
 				7E1492C1225C342700A26743 /* PMVPTests */,
 				7E1492B5225C342700A26743 /* Products */,
+				C9FA2C101353B559835B354C /* Pods */,
+				57C944A0C83B691D2BFB2F8E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +136,19 @@
 			children = (
 				7E1492B7225C342700A26743 /* PMVP.h */,
 				7E1492B8225C342700A26743 /* Info.plist */,
+				7E1492CE225C344600A26743 /* ViewModelState.swift */,
+				7E1492D0225C346400A26743 /* ViewModelIntent.swift */,
+				7E1492D2225C348D00A26743 /* ViewModel.swift */,
+				7E1492D4225C387E00A26743 /* Presenter.swift */,
+				7E1492D6225C3A3C00A26743 /* Proxy.swift */,
+				7E1492D8225C3A5300A26743 /* Provider.swift */,
+				7E1492DA225C3AC700A26743 /* LocalStorage.swift */,
+				7E1492DE225C3DEC00A26743 /* Converter.swift */,
+				7E1492E0225C3EA900A26743 /* LocalObject.swift */,
+				7E1492E2225C3ECB00A26743 /* RemoteObject.swift */,
+				7E1492E4225C3F5200A26743 /* RemoteStorage.swift */,
+				7E1492E6225C3FC200A26743 /* Storage.swift */,
+				7E1492E8225C3FFE00A26743 /* AbstractObject.swift */,
 			);
 			path = PMVP;
 			sourceTree = "<group>";
@@ -80,10 +156,37 @@
 		7E1492C1225C342700A26743 /* PMVPTests */ = {
 			isa = PBXGroup;
 			children = (
-				7E1492C2225C342700A26743 /* PMVPTests.swift */,
+				7E1492EA225C490A00A26743 /* Example */,
 				7E1492C4225C342700A26743 /* Info.plist */,
+				7E1492F7225C4C3100A26743 /* ProviderTests.swift */,
 			);
 			path = PMVPTests;
+			sourceTree = "<group>";
+		};
+		7E1492EA225C490A00A26743 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				7E1492EB225C494400A26743 /* PlaylistProxy.swift */,
+				7E1492ED225C498D00A26743 /* PlaylistLocalStorage.swift */,
+				7E1492EF225C4A3200A26743 /* Playlist.swift */,
+				7E1492F1225C4B2F00A26743 /* PlaylistRemoteStorage.swift */,
+				7E1492F3225C4B7200A26743 /* PlaylistRemoteObject.swift */,
+				7E1492F5225C4BCE00A26743 /* PlaylistProvider.swift */,
+				7E1492F9225C4C9000A26743 /* PlaylistLocalConverter.swift */,
+				7E1492FB225C4DB900A26743 /* PlaylistRemoteConverter.swift */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		C9FA2C101353B559835B354C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B93B5317989063155797BEC6 /* Pods-PMVP.debug.xcconfig */,
+				A122AAE1F8EA9856A95506AB /* Pods-PMVP.release.xcconfig */,
+				DE3BDE828E7BF7545B70A030 /* Pods-PMVPTests.debug.xcconfig */,
+				A6C075ED703E994EC6DD2A7C /* Pods-PMVPTests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +207,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7E1492C8225C342700A26743 /* Build configuration list for PBXNativeTarget "PMVP" */;
 			buildPhases = (
+				D876672878E4B0B3B2D5BE36 /* [CP] Check Pods Manifest.lock */,
 				7E1492AF225C342700A26743 /* Headers */,
 				7E1492B0225C342700A26743 /* Sources */,
 				7E1492B1225C342700A26743 /* Frameworks */,
@@ -122,9 +226,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7E1492CB225C342700A26743 /* Build configuration list for PBXNativeTarget "PMVPTests" */;
 			buildPhases = (
+				3B969833990035D724BC87C4 /* [CP] Check Pods Manifest.lock */,
 				7E1492B9225C342700A26743 /* Sources */,
 				7E1492BA225C342700A26743 /* Frameworks */,
 				7E1492BB225C342700A26743 /* Resources */,
+				79ED7DEE5117C5B36CC2EE30 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -148,6 +254,7 @@
 				TargetAttributes = {
 					7E1492B3225C342700A26743 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					7E1492BC225C342700A26743 = {
 						CreatedOnToolsVersion = 10.1;
@@ -189,11 +296,101 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3B969833990035D724BC87C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PMVPTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79ED7DEE5117C5B36CC2EE30 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PMVPTests/Pods-PMVPTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PMVPTests/Pods-PMVPTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D876672878E4B0B3B2D5BE36 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PMVP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7E1492B0225C342700A26743 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E1492D1225C346400A26743 /* ViewModelIntent.swift in Sources */,
+				7E1492D3225C348D00A26743 /* ViewModel.swift in Sources */,
+				7E1492D5225C387E00A26743 /* Presenter.swift in Sources */,
+				7E1492E9225C3FFE00A26743 /* AbstractObject.swift in Sources */,
+				7E1492CF225C344600A26743 /* ViewModelState.swift in Sources */,
+				7E1492E3225C3ECB00A26743 /* RemoteObject.swift in Sources */,
+				7E1492E7225C3FC200A26743 /* Storage.swift in Sources */,
+				7E1492DF225C3DEC00A26743 /* Converter.swift in Sources */,
+				7E1492D9225C3A5300A26743 /* Provider.swift in Sources */,
+				7E1492DB225C3AC700A26743 /* LocalStorage.swift in Sources */,
+				7E1492E1225C3EA900A26743 /* LocalObject.swift in Sources */,
+				7E1492D7225C3A3C00A26743 /* Proxy.swift in Sources */,
+				7E1492E5225C3F5200A26743 /* RemoteStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +398,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E1492C3225C342700A26743 /* PMVPTests.swift in Sources */,
+				7E1492EC225C494400A26743 /* PlaylistProxy.swift in Sources */,
+				7E1492FC225C4DB900A26743 /* PlaylistRemoteConverter.swift in Sources */,
+				7E1492F4225C4B7200A26743 /* PlaylistRemoteObject.swift in Sources */,
+				7E1492F6225C4BCE00A26743 /* PlaylistProvider.swift in Sources */,
+				7E1492FA225C4C9000A26743 /* PlaylistLocalConverter.swift in Sources */,
+				7E1492F8225C4C3100A26743 /* ProviderTests.swift in Sources */,
+				7E1492EE225C498D00A26743 /* PlaylistLocalStorage.swift in Sources */,
+				7E1492F2225C4B2F00A26743 /* PlaylistRemoteStorage.swift in Sources */,
+				7E1492F0225C4A3200A26743 /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +545,9 @@
 		};
 		7E1492C9225C342700A26743 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B93B5317989063155797BEC6 /* Pods-PMVP.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -358,6 +565,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aubreygoodman.PMVP;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -365,7 +573,9 @@
 		};
 		7E1492CA225C342700A26743 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A122AAE1F8EA9856A95506AB /* Pods-PMVP.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -390,7 +600,9 @@
 		};
 		7E1492CC225C342700A26743 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE3BDE828E7BF7545B70A030 /* Pods-PMVPTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 99357UCVXN;
 				INFOPLIST_FILE = PMVPTests/Info.plist;
@@ -408,7 +620,9 @@
 		};
 		7E1492CD225C342700A26743 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6C075ED703E994EC6DD2A7C /* Pods-PMVPTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 99357UCVXN;
 				INFOPLIST_FILE = PMVPTests/Info.plist;
