@@ -93,4 +93,56 @@ class ProviderTests: XCTestCase {
 		}
 	}
 
+	func testUpdateTwo() {
+		local.playlists = [:]
+		for k in (1...2) {
+			var p = PlaylistProxy()
+			p.name = "example\(k)"
+			p.playlistId = "playlist\(k)"
+			local.playlists[p.playlistId] = p
+		}
+		let response = expectation(description: "received")
+		var updatedList = [PlaylistProxy](local.playlists.values)
+		updatedList[0].name = "example6"
+		updatedList[1].name = "example7"
+		provider.update(updatedList, queue: .global()) { (results) in
+			XCTAssertEqual(results.count, 2)
+			if let first = results.first {
+				XCTAssertEqual(first.name, updatedList[0].name)
+			}
+			if let last = results.last {
+				XCTAssertEqual(last.name, updatedList[1].name)
+			}
+			response.fulfill()
+		}
+		waitForExpectations(timeout: 1.0, handler: nil)
+
+		for k in (1...2) {
+			if let confirm = local.playlists["playlist\(k)"] {
+				XCTAssertEqual(confirm.playlistId, "playlist\(k)")
+				XCTAssertEqual(confirm.name, "example\(k+5)")
+			}
+			else {
+				XCTFail("not found")
+			}
+		}
+	}
+
+	func testDestroy() {
+		var playlist = PlaylistProxy()
+		playlist.name = "example"
+		playlist.playlistId = "playlist1"
+		local.playlists = [:]
+		local.playlists["playlist1"] = playlist
+		let response = expectation(description: "received")
+		provider.destroy(playlist, queue: .global()) { (result) in
+			XCTAssertEqual(result.name, playlist.name)
+			XCTAssertEqual(result.playlistId, playlist.playlistId)
+			response.fulfill()
+		}
+		waitForExpectations(timeout: 1.0, handler: nil)
+
+		XCTAssertEqual(local.playlists.count, 0)
+	}
+
 }
