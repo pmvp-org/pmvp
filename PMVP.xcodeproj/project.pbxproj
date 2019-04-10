@@ -32,6 +32,8 @@
 		7E1492F8225C4C3100A26743 /* ProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492F7225C4C3100A26743 /* ProviderTests.swift */; };
 		7E1492FA225C4C9000A26743 /* PlaylistLocalConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492F9225C4C9000A26743 /* PlaylistLocalConverter.swift */; };
 		7E1492FC225C4DB900A26743 /* PlaylistRemoteConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492FB225C4DB900A26743 /* PlaylistRemoteConverter.swift */; };
+		7E1492FE225D8FCB00A26743 /* ProviderRxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492FD225D8FCB00A26743 /* ProviderRxTests.swift */; };
+		7E149300225D90E500A26743 /* ProviderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492FF225D90E500A26743 /* ProviderBase.swift */; };
 		87699565589E244EDB5A10C3 /* Pods_PMVPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA91BD3B69C46666D69C570 /* Pods_PMVPTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +75,8 @@
 		7E1492F7225C4C3100A26743 /* ProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTests.swift; sourceTree = "<group>"; };
 		7E1492F9225C4C9000A26743 /* PlaylistLocalConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistLocalConverter.swift; sourceTree = "<group>"; };
 		7E1492FB225C4DB900A26743 /* PlaylistRemoteConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistRemoteConverter.swift; sourceTree = "<group>"; };
+		7E1492FD225D8FCB00A26743 /* ProviderRxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderRxTests.swift; sourceTree = "<group>"; };
+		7E1492FF225D90E500A26743 /* ProviderBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderBase.swift; sourceTree = "<group>"; };
 		80A2D1D5FF16E625B78A517D /* Pods_PMVP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PMVP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A122AAE1F8EA9856A95506AB /* Pods-PMVP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMVP.release.xcconfig"; path = "Target Support Files/Pods-PMVP/Pods-PMVP.release.xcconfig"; sourceTree = "<group>"; };
 		A6C075ED703E994EC6DD2A7C /* Pods-PMVPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMVPTests.release.xcconfig"; path = "Target Support Files/Pods-PMVPTests/Pods-PMVPTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				7E1492EA225C490A00A26743 /* Example */,
 				7E1492C4225C342700A26743 /* Info.plist */,
 				7E1492F7225C4C3100A26743 /* ProviderTests.swift */,
+				7E1492FD225D8FCB00A26743 /* ProviderRxTests.swift */,
+				7E1492FF225D90E500A26743 /* ProviderBase.swift */,
 			);
 			path = PMVPTests;
 			sourceTree = "<group>";
@@ -404,7 +410,9 @@
 				7E1492F6225C4BCE00A26743 /* PlaylistProvider.swift in Sources */,
 				7E1492FA225C4C9000A26743 /* PlaylistLocalConverter.swift in Sources */,
 				7E1492F8225C4C3100A26743 /* ProviderTests.swift in Sources */,
+				7E1492FE225D8FCB00A26743 /* ProviderRxTests.swift in Sources */,
 				7E1492EE225C498D00A26743 /* PlaylistLocalStorage.swift in Sources */,
+				7E149300225D90E500A26743 /* ProviderBase.swift in Sources */,
 				7E1492F2225C4B2F00A26743 /* PlaylistRemoteStorage.swift in Sources */,
 				7E1492F0225C4A3200A26743 /* Playlist.swift in Sources */,
 			);
