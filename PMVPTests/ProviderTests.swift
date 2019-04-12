@@ -9,22 +9,7 @@
 import XCTest
 @testable import PMVP
 
-class ProviderTests: XCTestCase {
-
-	var provider: PlaylistProvider!
-	var local: PlaylistLocalStorage!
-	var remote: PlaylistRemoteStorage!
-	let localConverter = PlaylistLocalConverter()
-	let remoteConverter = PlaylistRemoteConverter()
-
-    override func setUp() {
-		local = PlaylistLocalStorage(converter: localConverter)
-		remote = PlaylistRemoteStorage(converter: remoteConverter)
-		provider = PlaylistProvider(queueName: "queue.playlist", localStorage: local, remoteStorage: remote)
-    }
-
-    override func tearDown() {
-    }
+class ProviderTests: ProviderBase {
 
     func testGetEmpty() {
 		local.playlists = [:]
