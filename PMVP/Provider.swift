@@ -8,7 +8,7 @@
 
 import RxSwift
 
-class Provider<K: Hashable, T: Proxy, A: LocalObject, B: RemoteObject, L: LocalStorage<K, A, T>, R: RemoteStorage<K, B, T>> {
+open class Provider<K: Hashable, T: Proxy, A: LocalObject, B: RemoteObject, L: LocalStorage<K, A, T>, R: RemoteStorage<K, B, T>> {
 
 	private let localStorage: LocalStorage<K, A, T>
 
@@ -18,23 +18,43 @@ class Provider<K: Hashable, T: Proxy, A: LocalObject, B: RemoteObject, L: LocalS
 
 	private let scheduler: SchedulerType
 
+	private var keysSubject: BehaviorSubject<[K]>!
+
+	private var collectionSubject: BehaviorSubject<[T]>!
+
 	private var subjectMap: [K: BehaviorSubject<T?>] = [:]
 
-	init(queueName: String, localStorage: LocalStorage<K, A, T>, remoteStorage: RemoteStorage<K, B, T>) {
+	public init(queueName: String, localStorage: LocalStorage<K, A, T>, remoteStorage: RemoteStorage<K, B, T>) {
 		self.storageQueue = DispatchQueue(label: queueName)
 		self.scheduler = SerialDispatchQueueScheduler(queue: storageQueue, internalSerialQueueName: queueName)
 		self.localStorage = localStorage
 		self.remoteStorage = remoteStorage
+		keysSubject = createKeyListSubject()
+		collectionSubject = createCollectionSubject()
 	}
 
 	// MARK: - Required Methods
 
-	func createSubject() -> BehaviorSubject<T?> {
+	open func createSubject() -> BehaviorSubject<T?> {
 		fatalError("unimplemented \(#function)")
 	}
 
-	func key(for object: T?) -> K? {
+	open func createKeyListSubject() -> BehaviorSubject<[K]> {
 		fatalError("unimplemented \(#function)")
+	}
+
+	open func createCollectionSubject() -> BehaviorSubject<[T]> {
+		fatalError("unimplemented \(#function)")
+	}
+
+	open func key(for object: T?) -> K? {
+		fatalError("unimplemented \(#function)")
+	}
+
+	// MARKL - Optional Methods
+
+	public func shouldNotifyAllOnUpdate() -> Bool {
+		return true
 	}
 
 	// MARK: - Basic ORM
@@ -76,11 +96,33 @@ class Provider<K: Hashable, T: Proxy, A: LocalObject, B: RemoteObject, L: LocalS
 
 	// MARK: - Rx Observable Methods
 
-	func object(for key: K) -> Observable<T?> {
+	public final func keys() -> Observable<[K]> {
+		var result: Observable<[K]>!
+		storageQueue.sync { [weak self] in
+			guard let strongSelf = self else {
+				fatalError("impossible")
+			}
+			result = strongSelf.keysSubject
+		}
+		return result
+	}
+
+	public final func objects() -> Observable<[T]> {
+		var result: Observable<[T]>!
+		storageQueue.sync { [weak self] in
+			guard let strongSelf = self else {
+				fatalError("impossible")
+			}
+			result = strongSelf.collectionSubject
+		}
+		return result
+	}
+
+	public final func object(for key: K) -> Observable<T?> {
 		var result: Observable<T?>!
 		storageQueue.sync { [weak self] in
 			guard let strongSelf = self else {
-				fatalError("curious")
+				fatalError("impossible")
 			}
 			result = strongSelf.findOrCreateSubject(for: key)
 		}
@@ -111,9 +153,12 @@ class Provider<K: Hashable, T: Proxy, A: LocalObject, B: RemoteObject, L: LocalS
 
 	private func notify(_ object: T?) {
 		guard let key = self.key(for: object) else { return }
-		storageQueue.async { [weak self] in
-			if let strongSelf = self, let subject = strongSelf.subjectMap[key] {
-				subject.onNext(object)
+		if let subject = subjectMap[key] {
+			subject.onNext(object)
+		}
+		if shouldNotifyAllOnUpdate() {
+			localStorage.allObjects(queue: storageQueue) { [weak self] (results) in
+				self?.collectionSubject.onNext(results)
 			}
 		}
 	}
