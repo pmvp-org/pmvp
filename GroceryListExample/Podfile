@@ -1,0 +1,18 @@
+# Podfile
+
+platform :ios, '12.0'
+
+use_frameworks!
+
+workspace 'GroceryListExample'
+project 'GroceryListExample'
+
+
+# Target GroceryListExample
+
+target 'GroceryListExample' do
+	pod 'PMVP', :path => '..'
+#	pod 'PMVP', :git => 'https://github.com/agoodman/pmvp.git', :tag => '0.1'
+	pod 'RxSwift', '~> 4.0'
+	pod 'RxCocoa', '~> 4.0'
+end
