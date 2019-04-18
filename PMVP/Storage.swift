@@ -6,7 +6,7 @@
 //  Copyright © 2019 Aubrey Goodman. All rights reserved.
 //
 
-protocol Storage {
+public protocol Storage {
 	associatedtype K
 	associatedtype P: Proxy
 

@@ -6,5 +6,5 @@
 //  Copyright © 2019 Aubrey Goodman. All rights reserved.
 //
 
-protocol RemoteObject: AbstractObject {
+public protocol RemoteObject: AbstractObject {
 }

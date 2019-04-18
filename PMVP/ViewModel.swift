@@ -8,48 +8,52 @@
 
 import RxSwift
 
-class ViewModel<T: ViewModelState, N: ViewModelIntent> {
+open class ViewModel<T: ViewModelState, N: ViewModelIntent> {
 
 	private var stateSubject: BehaviorSubject<T>!
 
-	init() {
+	public init() {
 		self.stateSubject = createSubject()
+		registerObservers()
 	}
 
-	final func state() -> Observable<T> {
+	public final func state() -> Observable<T> {
 		return stateSubject
 	}
 
 	// MARK: - Required Methods
 
-	func createSubject() -> BehaviorSubject<T> {
+	open func createSubject() -> BehaviorSubject<T> {
 		fatalError("unimplemented \(#function)")
 	}
 
-	func equality(_ a: T, _ b: T) -> Bool {
+	open func equality(_ a: T, _ b: T) -> Bool {
 		fatalError("unimplemented \(#function)")
 	}
 
-	func onIntent(_ intent: N) {
+	open func onIntent(_ intent: N) {
 		fatalError("unimplemented \(#function)")
 	}
 
 	// MARK: - Optional Methods
 
-	func willTransition(to state: T) {
+	open func registerObservers() {
 	}
 
-	func didTransition(to state: T) {
+	open func willTransition(to state: T) {
+	}
+
+	open func didTransition(to state: T) {
 	}
 
 	// MARK: - Shared Methods
 
-	final func expect(_ state: T) -> Bool {
+	public final func expect(_ state: T) -> Bool {
 		guard let currentState: T = try? stateSubject.value() else { return false }
 		return equality(currentState, state)
 	}
 
-	final func expect(in options: [T]) -> Bool {
+	public final func expect(in options: [T]) -> Bool {
 		guard let currentState: T = try? stateSubject.value() else { return false }
 		for option in options {
 			if equality(currentState, option) {
@@ -59,7 +63,7 @@ class ViewModel<T: ViewModelState, N: ViewModelIntent> {
 		return false
 	}
 
-	final func transition(to state: T) {
+	public final func transition(to state: T) {
 		willTransition(to: state)
 		stateSubject.onNext(state)
 		didTransition(to: state)

@@ -8,19 +8,19 @@
 
 import RxSwift
 
-class Presenter<T: ViewModelState, N: ViewModelIntent> {
+open class Presenter<T: ViewModelState, N: ViewModelIntent> {
 
-	let viewModel: ViewModel<T, N>
+	public let viewModel: ViewModel<T, N>
 
-	var disposeBag: DisposeBag = DisposeBag()
+	public var disposeBag: DisposeBag = DisposeBag()
 
-	init(viewModel: ViewModel<T, N>) {
+	public init(viewModel: ViewModel<T, N>) {
 		self.viewModel = viewModel
 	}
 
 	// MARK: - Optional Methods
 
-	func registerObservers() {
+	open func registerObservers() {
 	}
 
 	final func disposeObservers() {
