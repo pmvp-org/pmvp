@@ -43,13 +43,17 @@ text, images, view bounds, layout constraints, etc.
 
 ## Podfile
 
-> pod 'PMVP', '~0.1'
+```
+pod 'PMVP', '~> 0.1'
+```
 
 ## Implement required components
 
 Let's say you're creating a class to manage Items.
 
-> class ItemProvider: Provider<...> {
+```
+class ItemProvider: Provider<...> {
+```
 
 Before you define the provider, you need to satisfy its dependencies. You need to create classes for the following:
 
@@ -91,21 +95,28 @@ class ItemProvider: Provider<Int, ItemProxy, ItemLocal, ItemRemote, ItemLocalSto
 
 ### Observing the collection
 
-> itemProvider.objects()
->   .subscribe(onNext: { items in NSLog("\(items.count) objects") })
->   .disposed(by: disposeBag)
+```
+itemProvider.objects()
+   .subscribe(onNext: { items in NSLog("\(items.count) objects") })
+   .disposed(by: disposeBag)
+```
 
 ### Observing one item
 
-> itemProvider.object(for: 127)
->   .subscribe(onNext: { item in NSLog(item) })
->   .disposed(by: disposeBag)
+```
+itemProvider.object(for: 127)
+   .subscribe(onNext: { item in NSLog(item) })
+   .disposed(by: disposeBag)
+```
 
 ### Creating/Updating items
 
-> itemProvider.update(item, queue: .main) { result in NSLog("item updated \(result)") }
+```
+itemProvider.update(item, queue: .main) { result in NSLog("item updated \(result)") }
+```
 
 ### Destroying an item
 
-> itemProvider.destroy(item, queue: .main) { result in NSLog("item deleted \(result)") }
-
+```
+itemProvider.destroy(item, queue: .main) { result in NSLog("item deleted \(result)") }
+```
