@@ -63,27 +63,29 @@ Before you define the provider, you need to satisfy its dependencies. You need t
 
 Once these are defined, you can create the provider class, as follows:
 
-> import RxSwift
->
-> class ItemProvider: Provider<Int, ItemProxy, ItemLocal, ItemRemote, ItemLocalStorage, ItemRemoteStorage> {
->
->   override func createSubject() -> BehaviorSubject<ItemProxy?> {
->     return BehaviorSubject<ItemProxy?>(value: nil)
->   }
->
->   override func createCollectionSubject() -> BehaviorSubject<[ItemProxy]> {
->     return BehaviorSubject<[ItemProxy]>(value: [])
->   }
->
->   override func createKeyListSubject() -> BehaviorSubject<[Int]> {
->     return BehaviorSubject<[Int]>(value: [])
->   }
->
->   override func key(for proxy: ItemProxy) -> Int {
->     return proxy.itemId
->   }
->
-> }
+```
+import RxSwift
+
+class ItemProvider: Provider<Int, ItemProxy, ItemLocal, ItemRemote, ItemLocalStorage, ItemRemoteStorage> {
+
+  override func createSubject() -> BehaviorSubject<ItemProxy?> {
+    return BehaviorSubject<ItemProxy?>(value: nil)
+  }
+
+  override func createCollectionSubject() -> BehaviorSubject<[ItemProxy]> {
+    return BehaviorSubject<[ItemProxy]>(value: [])
+  }
+
+  override func createKeyListSubject() -> BehaviorSubject<[Int]> {
+    return BehaviorSubject<[Int]>(value: [])
+  }
+
+  override func key(for proxy: ItemProxy) -> Int {
+    return proxy.itemId
+  }
+
+}
+```
 
 ## Usage
 
