@@ -6,7 +6,7 @@
 //  Copyright © 2019 Aubrey Goodman. All rights reserved.
 //
 
-open class Converter<T: AbstractObject, P: Proxy> {
+open class Converter<K: Hashable, T: AbstractObject, P: Proxy<K>> {
 
 	public init() {}
 

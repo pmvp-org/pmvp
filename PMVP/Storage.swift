@@ -8,7 +8,7 @@
 
 public protocol Storage {
 	associatedtype K
-	associatedtype P: Proxy
+	associatedtype P: Proxy<K>
 
 	func object(for key: K, queue: DispatchQueue, callback: @escaping (P?) -> Void)
 

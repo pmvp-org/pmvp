@@ -15,8 +15,12 @@ class PlaylistProvider: Provider<String, PlaylistProxy, Playlist, PlaylistRemote
 		return BehaviorSubject<PlaylistProxy?>(value: nil)
 	}
 
-	override func key(for object: PlaylistProxy?) -> String? {
-		return object?.playlistId
+	override func createCollectionSubject() -> BehaviorSubject<[PlaylistProxy]> {
+		return BehaviorSubject<[PlaylistProxy]>(value: [])
+	}
+
+	override func createKeyListSubject() -> BehaviorSubject<[String]> {
+		return BehaviorSubject<[String]>(value: [])
 	}
 
 }

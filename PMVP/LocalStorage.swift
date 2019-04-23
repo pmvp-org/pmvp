@@ -6,11 +6,11 @@
 //  Copyright © 2019 Aubrey Goodman. All rights reserved.
 //
 
-open class LocalStorage<K, L: LocalObject, P: Proxy>: Storage {
+open class LocalStorage<K, L: LocalObject, P: Proxy<K>>: Storage {
 
-	public let converter: Converter<L, P>
+	public let converter: Converter<K, L, P>
 
-	public init(converter: Converter<L, P>) {
+	public init(converter: Converter<K, L, P>) {
 		self.converter = converter
 	}
 

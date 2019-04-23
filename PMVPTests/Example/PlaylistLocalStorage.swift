@@ -44,7 +44,7 @@ class PlaylistLocalStorage: LocalStorage<String, Playlist, PlaylistProxy> {
 
 	override func update(_ object: PlaylistProxy, queue: DispatchQueue, callback: @escaping (PlaylistProxy) -> Void) {
 		testQueue.async { [weak self] in
-			self?.playlists[object.playlistId] = object
+			self?.playlists[object.key] = object
 			queue.async { callback(object) }
 		}
 	}
@@ -52,7 +52,7 @@ class PlaylistLocalStorage: LocalStorage<String, Playlist, PlaylistProxy> {
 	override func update(_ objects: [PlaylistProxy], queue: DispatchQueue, callback: @escaping ([PlaylistProxy]) -> Void) {
 		testQueue.async { [weak self] in
 			for obj in objects {
-				self?.playlists[obj.playlistId] = obj
+				self?.playlists[obj.key] = obj
 			}
 			queue.async { callback(objects) }
 		}
@@ -60,7 +60,7 @@ class PlaylistLocalStorage: LocalStorage<String, Playlist, PlaylistProxy> {
 
 	override func destroy(_ object: PlaylistProxy, queue: DispatchQueue, callback: @escaping (PlaylistProxy) -> Void) {
 		testQueue.async { [weak self] in
-			self?.playlists.removeValue(forKey: object.playlistId)
+			self?.playlists.removeValue(forKey: object.key)
 			queue.async { callback(object) }
 		}
 	}
