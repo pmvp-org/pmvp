@@ -44,7 +44,7 @@ text, images, view bounds, layout constraints, etc.
 ## Podfile
 
 ```
-pod 'PMVP', '~> 0.1'
+pod 'PMVP', '~> 0.2'
 ```
 
 ## Implement required components
