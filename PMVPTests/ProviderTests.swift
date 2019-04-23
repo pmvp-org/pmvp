@@ -23,16 +23,14 @@ class ProviderTests: ProviderBase {
     }
 
 	func testGetOne() {
-		var playlist = PlaylistProxy()
-		playlist.name = "example"
-		playlist.playlistId = "playlist1"
+		let playlist = PlaylistProxy(id: "playlist1", name: "example")
 		local.playlists = [:]
 		local.playlists["playlist1"] = playlist
 		let response = expectation(description: "received")
 		provider.object(for: "playlist1", queue: .global()) { (result) in
 			if let result = result {
 				XCTAssertEqual(result.name, playlist.name)
-				XCTAssertEqual(result.playlistId, playlist.playlistId)
+				XCTAssertEqual(result.key, playlist.key)
 				response.fulfill()
 			}
 		}
@@ -42,10 +40,8 @@ class ProviderTests: ProviderBase {
 	func testGetTwo() {
 		local.playlists = [:]
 		for k in (1...2) {
-			var p = PlaylistProxy()
-			p.name = "example\(k)"
-			p.playlistId = "playlist\(k)"
-			local.playlists[p.playlistId] = p
+			let p = PlaylistProxy(id: "playlist\(k)", name: "example\(k)")
+			local.playlists[p.key] = p
 		}
 		let response = expectation(description: "received")
 		provider.objects(for: ["playlist1", "playlist2"], queue: .global()) { (results) in
@@ -57,10 +53,8 @@ class ProviderTests: ProviderBase {
 
 	func testUpdateOne() {
 		local.playlists = [:]
-		var p = PlaylistProxy()
-		p.name = "example1"
-		p.playlistId = "playlist1"
-		local.playlists[p.playlistId] = p
+		let p = PlaylistProxy(id: "playlist1", name: "example1")
+		local.playlists[p.key] = p
 		p.name = "example2"
 		let response = expectation(description: "received")
 		provider.update(p, queue: .global()) { (result) in
@@ -70,7 +64,7 @@ class ProviderTests: ProviderBase {
 		waitForExpectations(timeout: 1.0, handler: nil)
 
 		if let confirm = local.playlists["playlist1"] {
-			XCTAssertEqual(confirm.playlistId, p.playlistId)
+			XCTAssertEqual(confirm.key, p.key)
 			XCTAssertEqual(confirm.name, p.name)
 		}
 		else {
@@ -81,10 +75,8 @@ class ProviderTests: ProviderBase {
 	func testUpdateTwo() {
 		local.playlists = [:]
 		for k in (1...2) {
-			var p = PlaylistProxy()
-			p.name = "example\(k)"
-			p.playlistId = "playlist\(k)"
-			local.playlists[p.playlistId] = p
+			let p = PlaylistProxy(id: "playlist\(k)", name: "example\(k)")
+			local.playlists[p.key] = p
 		}
 		let response = expectation(description: "received")
 		var updatedList = [PlaylistProxy](local.playlists.values)
@@ -104,7 +96,7 @@ class ProviderTests: ProviderBase {
 
 		for k in (1...2) {
 			if let confirm = local.playlists["playlist\(k)"] {
-				XCTAssertEqual(confirm.playlistId, "playlist\(k)")
+				XCTAssertEqual(confirm.key, "playlist\(k)")
 				XCTAssertEqual(confirm.name, "example\(k+5)")
 			}
 			else {
@@ -114,15 +106,13 @@ class ProviderTests: ProviderBase {
 	}
 
 	func testDestroy() {
-		var playlist = PlaylistProxy()
-		playlist.name = "example"
-		playlist.playlistId = "playlist1"
+		let playlist = PlaylistProxy(id: "playlist1", name: "example")
 		local.playlists = [:]
 		local.playlists["playlist1"] = playlist
 		let response = expectation(description: "received")
 		provider.destroy(playlist, queue: .global()) { (result) in
 			XCTAssertEqual(result.name, playlist.name)
-			XCTAssertEqual(result.playlistId, playlist.playlistId)
+			XCTAssertEqual(result.key, playlist.key)
 			response.fulfill()
 		}
 		waitForExpectations(timeout: 1.0, handler: nil)

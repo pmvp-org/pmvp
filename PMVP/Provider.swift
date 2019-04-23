@@ -8,7 +8,7 @@
 
 import RxSwift
 
-open class Provider<K: Hashable, T: Proxy, A: LocalObject, B: RemoteObject, L: LocalStorage<K, A, T>, R: RemoteStorage<K, B, T>> {
+open class Provider<K: Hashable, T: Proxy<K>, A: LocalObject, B: RemoteObject, L: LocalStorage<K, A, T>, R: RemoteStorage<K, B, T>> {
 
 	private let localStorage: LocalStorage<K, A, T>
 
@@ -44,10 +44,6 @@ open class Provider<K: Hashable, T: Proxy, A: LocalObject, B: RemoteObject, L: L
 	}
 
 	open func createCollectionSubject() -> BehaviorSubject<[T]> {
-		fatalError("unimplemented \(#function)")
-	}
-
-	open func key(for object: T?) -> K? {
 		fatalError("unimplemented \(#function)")
 	}
 
@@ -152,7 +148,7 @@ open class Provider<K: Hashable, T: Proxy, A: LocalObject, B: RemoteObject, L: L
 	}
 
 	private func notify(_ object: T?) {
-		guard let key = self.key(for: object) else { return }
+		guard let key = object?.key else { return }
 		if let subject = subjectMap[key] {
 			subject.onNext(object)
 		}

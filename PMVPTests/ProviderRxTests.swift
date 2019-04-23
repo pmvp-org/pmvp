@@ -36,11 +36,11 @@ class ProviderRxTests: ProviderBase {
 		})
 
 		let updatedExp = expectation(description: "updated")
-		let p1 = PlaylistProxy(playlistId: "playlist1", name: "name1")
+		let p1 = PlaylistProxy(id: "playlist1", name: "name1")
 		provider.update(p1, queue: .global()) { (r1) in
 			updatedExp.fulfill()
 			XCTAssertEqual(p1.name, r1.name)
-			XCTAssertEqual(p1.playlistId, r1.playlistId)
+			XCTAssertEqual(p1.key, r1.key)
 		}
 
 		wait(for: [notEmptyExp, updatedExp], timeout: 1.0)

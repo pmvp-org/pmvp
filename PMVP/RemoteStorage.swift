@@ -6,11 +6,11 @@
 //  Copyright © 2019 Aubrey Goodman. All rights reserved.
 //
 
-open class RemoteStorage<K, T: RemoteObject, P: Proxy>: Storage {
+open class RemoteStorage<K, T: RemoteObject, P: Proxy<K>>: Storage {
 
-	public let converter: Converter<T, P>
+	public let converter: Converter<K, T, P>
 
-	public init(converter: Converter<T, P>) {
+	public init(converter: Converter<K, T, P>) {
 		self.converter = converter
 	}
 

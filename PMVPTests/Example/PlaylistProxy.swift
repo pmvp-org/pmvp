@@ -8,9 +8,13 @@
 
 @testable import PMVP
 
-struct PlaylistProxy: Proxy {
+class PlaylistProxy: Proxy<String> {
 
-	var playlistId: String = ""
 	var name: String = ""
+
+	init(id: String, name: String) {
+		self.name = name
+		super.init(key: id)
+	}
 
 }

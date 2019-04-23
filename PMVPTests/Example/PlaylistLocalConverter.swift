@@ -8,18 +8,15 @@
 
 @testable import PMVP
 
-class PlaylistLocalConverter: Converter<Playlist, PlaylistProxy> {
+class PlaylistLocalConverter: Converter<String, Playlist, PlaylistProxy> {
 
 	override func toProxy(_ object: Playlist) -> PlaylistProxy {
-		var proxy = PlaylistProxy()
-		proxy.playlistId = object.playlistId
-		proxy.name = object.name
-		return proxy
+		return PlaylistProxy(id: object.playlistId, name: object.name)
 	}
 
 	override func fromProxy(_ proxy: PlaylistProxy) -> Playlist {
 		var local = Playlist()
-		local.playlistId = proxy.playlistId
+		local.playlistId = proxy.key
 		local.name = proxy.name
 		return local
 	}

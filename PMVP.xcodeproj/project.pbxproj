@@ -34,6 +34,9 @@
 		7E1492FC225C4DB900A26743 /* PlaylistRemoteConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492FB225C4DB900A26743 /* PlaylistRemoteConverter.swift */; };
 		7E1492FE225D8FCB00A26743 /* ProviderRxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492FD225D8FCB00A26743 /* ProviderRxTests.swift */; };
 		7E149300225D90E500A26743 /* ProviderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492FF225D90E500A26743 /* ProviderBase.swift */; };
+		7E6A6634226E6A070067F69B /* MockLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6A6633226E6A070067F69B /* MockLocalStorage.swift */; };
+		7E6A6636226E6A410067F69B /* MockRemoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6A6635226E6A410067F69B /* MockRemoteStorage.swift */; };
+		7ECC5C17226E2DB70015A91B /* Trackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC5C16226E2DB70015A91B /* Trackable.swift */; };
 		87699565589E244EDB5A10C3 /* Pods_PMVPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA91BD3B69C46666D69C570 /* Pods_PMVPTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +80,9 @@
 		7E1492FB225C4DB900A26743 /* PlaylistRemoteConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistRemoteConverter.swift; sourceTree = "<group>"; };
 		7E1492FD225D8FCB00A26743 /* ProviderRxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderRxTests.swift; sourceTree = "<group>"; };
 		7E1492FF225D90E500A26743 /* ProviderBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderBase.swift; sourceTree = "<group>"; };
+		7E6A6633226E6A070067F69B /* MockLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocalStorage.swift; sourceTree = "<group>"; };
+		7E6A6635226E6A410067F69B /* MockRemoteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRemoteStorage.swift; sourceTree = "<group>"; };
+		7ECC5C16226E2DB70015A91B /* Trackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trackable.swift; sourceTree = "<group>"; };
 		80A2D1D5FF16E625B78A517D /* Pods_PMVP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PMVP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A122AAE1F8EA9856A95506AB /* Pods-PMVP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMVP.release.xcconfig"; path = "Target Support Files/Pods-PMVP/Pods-PMVP.release.xcconfig"; sourceTree = "<group>"; };
 		A6C075ED703E994EC6DD2A7C /* Pods-PMVPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMVPTests.release.xcconfig"; path = "Target Support Files/Pods-PMVPTests/Pods-PMVPTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +144,7 @@
 		7E1492B6225C342700A26743 /* PMVP */ = {
 			isa = PBXGroup;
 			children = (
+				7E6A6632226E69F70067F69B /* Mock */,
 				7E1492B7225C342700A26743 /* PMVP.h */,
 				7E1492B8225C342700A26743 /* Info.plist */,
 				7E1492CE225C344600A26743 /* ViewModelState.swift */,
@@ -153,6 +160,7 @@
 				7E1492E4225C3F5200A26743 /* RemoteStorage.swift */,
 				7E1492E6225C3FC200A26743 /* Storage.swift */,
 				7E1492E8225C3FFE00A26743 /* AbstractObject.swift */,
+				7ECC5C16226E2DB70015A91B /* Trackable.swift */,
 			);
 			path = PMVP;
 			sourceTree = "<group>";
@@ -182,6 +190,15 @@
 				7E1492FB225C4DB900A26743 /* PlaylistRemoteConverter.swift */,
 			);
 			path = Example;
+			sourceTree = "<group>";
+		};
+		7E6A6632226E69F70067F69B /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				7E6A6633226E6A070067F69B /* MockLocalStorage.swift */,
+				7E6A6635226E6A410067F69B /* MockRemoteStorage.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		C9FA2C101353B559835B354C /* Pods */ = {
@@ -385,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E1492D1225C346400A26743 /* ViewModelIntent.swift in Sources */,
+				7ECC5C17226E2DB70015A91B /* Trackable.swift in Sources */,
 				7E1492D3225C348D00A26743 /* ViewModel.swift in Sources */,
 				7E1492D5225C387E00A26743 /* Presenter.swift in Sources */,
 				7E1492E9225C3FFE00A26743 /* AbstractObject.swift in Sources */,
@@ -393,8 +411,10 @@
 				7E1492E7225C3FC200A26743 /* Storage.swift in Sources */,
 				7E1492DF225C3DEC00A26743 /* Converter.swift in Sources */,
 				7E1492D9225C3A5300A26743 /* Provider.swift in Sources */,
+				7E6A6634226E6A070067F69B /* MockLocalStorage.swift in Sources */,
 				7E1492DB225C3AC700A26743 /* LocalStorage.swift in Sources */,
 				7E1492E1225C3EA900A26743 /* LocalObject.swift in Sources */,
+				7E6A6636226E6A410067F69B /* MockRemoteStorage.swift in Sources */,
 				7E1492D7225C3A3C00A26743 /* Proxy.swift in Sources */,
 				7E1492E5225C3F5200A26743 /* RemoteStorage.swift in Sources */,
 			);

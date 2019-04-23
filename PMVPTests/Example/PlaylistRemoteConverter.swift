@@ -8,18 +8,15 @@
 
 @testable import PMVP
 
-class PlaylistRemoteConverter: Converter<PlaylistRemoteObject, PlaylistProxy> {
+class PlaylistRemoteConverter: Converter<String, PlaylistRemoteObject, PlaylistProxy> {
 
 	override func toProxy(_ object: PlaylistRemoteObject) -> PlaylistProxy {
-		var proxy = PlaylistProxy()
-		proxy.playlistId = object.playlistId
-		proxy.name = object.name
-		return proxy
+		return PlaylistProxy(id: object.playlistId, name: object.name)
 	}
 
 	override func fromProxy(_ proxy: PlaylistProxy) -> PlaylistRemoteObject {
-		var remote = PlaylistRemoteObject()
-		remote.playlistId = proxy.playlistId
+		let remote = PlaylistRemoteObject()
+		remote.playlistId = proxy.key
 		remote.name = proxy.name
 		return remote
 	}
