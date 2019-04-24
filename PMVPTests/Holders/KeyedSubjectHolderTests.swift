@@ -31,11 +31,11 @@ class KeyedSubjectHolderTests: XCTestCase {
 			XCTFail("unexpected value")
 		})
 		let proxy1 = PlaylistProxy(id: key, name: expectedValue)
-		holder.notify(proxy1)
+		holder.notify(for: key, object: proxy1)
 		d2.dispose()
 
 		let proxy2 = PlaylistProxy(id: "playlist2", name: "Another Playlist")
-		holder.notify(proxy2)
+		holder.notify(for: "playlist2", object: proxy2)
 		waitForExpectations(timeout: 1.0, handler: nil)
 	}
 

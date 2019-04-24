@@ -10,17 +10,13 @@ import RxSwift
 
 open class Provider<K: Hashable, T: Proxy<K>, A: LocalObject, B: RemoteObject, L: LocalStorage<K, A, T>, R: RemoteStorage<K, B, T>> {
 
-	private let localStorage: LocalStorage<K, A, T>
+	public let localStorage: LocalStorage<K, A, T>
 
-	private let remoteStorage: RemoteStorage<K, B, T>
+	public let remoteStorage: RemoteStorage<K, B, T>
 
-	private let storageQueue: DispatchQueue
+	public let storageQueue: DispatchQueue
 
-	private let scheduler: SchedulerType
-
-	private var keysSubject: BehaviorSubject<[K]>!
-
-	public var collectionSubject: BehaviorSubject<[T]>!
+	public let scheduler: SchedulerType
 
 	private let subjectHolder: KeyedSubjectHolder<K, T>
 

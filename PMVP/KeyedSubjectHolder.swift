@@ -8,7 +8,7 @@
 
 import RxSwift
 
-open class KeyedSubjectHolder<K: Hashable, T: Proxy<K>> {
+open class KeyedSubjectHolder<K: Hashable, T> {
 
 	private var subjectMap: [K: BehaviorSubject<T?>] = [:]
 
@@ -25,8 +25,8 @@ open class KeyedSubjectHolder<K: Hashable, T: Proxy<K>> {
 		return findOrCreateSubject(for: key)
 	}
 
-	public final func notify(_ object: T) {
-		if let subject = subjectMap[object.key] {
+	public final func notify(for key: K, object: T) {
+		if let subject = subjectMap[key] {
 			subject.onNext(object)
 		}
 	}
