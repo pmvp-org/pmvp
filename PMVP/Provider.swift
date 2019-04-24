@@ -10,42 +10,44 @@ import RxSwift
 
 open class Provider<K: Hashable, T: Proxy<K>, A: LocalObject, B: RemoteObject, L: LocalStorage<K, A, T>, R: RemoteStorage<K, B, T>> {
 
-	private let localStorage: LocalStorage<K, A, T>
+	public let localStorage: LocalStorage<K, A, T>
 
-	private let remoteStorage: RemoteStorage<K, B, T>
+	public let remoteStorage: RemoteStorage<K, B, T>
 
-	private let storageQueue: DispatchQueue
+	public let storageQueue: DispatchQueue
 
-	private let scheduler: SchedulerType
+	public let scheduler: SchedulerType
 
-	private var keysSubject: BehaviorSubject<[K]>!
+	private let subjectHolder: KeyedSubjectHolder<K, T>
 
-	private var collectionSubject: BehaviorSubject<[T]>!
+	private let collectionHolder: CollectionSubjectHolder<T>
 
-	private var subjectMap: [K: BehaviorSubject<T?>] = [:]
+	private let keysSubjectHolder: CollectionSubjectHolder<K>
 
 	public init(queueName: String, localStorage: LocalStorage<K, A, T>, remoteStorage: RemoteStorage<K, B, T>) {
-		self.storageQueue = DispatchQueue(label: queueName)
+		let queue = DispatchQueue(label: queueName)
+		self.storageQueue = queue
 		self.scheduler = SerialDispatchQueueScheduler(queue: storageQueue, internalSerialQueueName: queueName)
 		self.localStorage = localStorage
 		self.remoteStorage = remoteStorage
-		keysSubject = createKeyListSubject()
-		collectionSubject = createCollectionSubject()
+
+		let subjectPreloader: (K, BehaviorSubject<T?>) -> Void = { key, subject in
+			localStorage.object(for: key, queue: queue, callback: { (result) in subject.onNext(result) })
+		}
+		subjectHolder = KeyedSubjectHolder<K, T>(scheduler: scheduler, preloader: subjectPreloader)
+
+		let keyPreloader: (BehaviorSubject<[K]>) -> Void = { subject in
+			localStorage.allObjects(queue: queue, callback: { (results) in subject.onNext(results.map({ $0.key })) })
+		}
+		keysSubjectHolder = CollectionSubjectHolder<K>(scheduler: scheduler, preloader: keyPreloader)
+
+		let collectionPreloader: (BehaviorSubject<[T]>) -> Void = { subject in
+			localStorage.allObjects(queue: queue, callback: { (results) in subject.onNext(results) })
+		}
+		collectionHolder = CollectionSubjectHolder<T>(scheduler: scheduler, preloader: collectionPreloader)
 	}
 
 	// MARK: - Required Methods
-
-	open func createSubject() -> BehaviorSubject<T?> {
-		fatalError("unimplemented \(#function)")
-	}
-
-	open func createKeyListSubject() -> BehaviorSubject<[K]> {
-		fatalError("unimplemented \(#function)")
-	}
-
-	open func createCollectionSubject() -> BehaviorSubject<[T]> {
-		fatalError("unimplemented \(#function)")
-	}
 
 	// MARKL - Optional Methods
 
@@ -98,7 +100,7 @@ open class Provider<K: Hashable, T: Proxy<K>, A: LocalObject, B: RemoteObject, L
 			guard let strongSelf = self else {
 				fatalError("impossible")
 			}
-			result = strongSelf.keysSubject
+			result = strongSelf.keysSubjectHolder.subject()
 		}
 		return result
 	}
@@ -109,7 +111,7 @@ open class Provider<K: Hashable, T: Proxy<K>, A: LocalObject, B: RemoteObject, L
 			guard let strongSelf = self else {
 				fatalError("impossible")
 			}
-			result = strongSelf.collectionSubject
+			result = strongSelf.collectionHolder.subject()
 		}
 		return result
 	}
@@ -120,41 +122,23 @@ open class Provider<K: Hashable, T: Proxy<K>, A: LocalObject, B: RemoteObject, L
 			guard let strongSelf = self else {
 				fatalError("impossible")
 			}
-			result = strongSelf.findOrCreateSubject(for: key)
+			result = strongSelf.subjectHolder.subject(for: key).distinctUntilChanged()
 		}
 		return result
 	}
 
 	// MARK: - Private Helper Methods
 
-	private func findOrCreateSubject(for key: K) -> BehaviorSubject<T?> {
-		if let existingSubject: BehaviorSubject<T?> = subjectMap[key] {
-			return existingSubject
-		}
-		else {
-			let newSubject: BehaviorSubject<T?> = createSubject()
-			subjectMap[key] = newSubject
-			_ = newSubject
-				.observeOn(scheduler)
-				.do(onDispose: { [weak self] in self?.clearUnusedSubject(for: key) })
-			return newSubject
-		}
-	}
-
-	private func clearUnusedSubject(for key: K) {
-		if let subject: BehaviorSubject<T?> = subjectMap[key], !subject.hasObservers {
-			subjectMap.removeValue(forKey: key)
-		}
-	}
-
 	private func notify(_ object: T?) {
 		guard let key = object?.key else { return }
-		if let subject = subjectMap[key] {
+		let observable = subjectHolder.subject(for: key)
+		if let subject = observable as? BehaviorSubject<T?> {
 			subject.onNext(object)
 		}
+
 		if shouldNotifyAllOnUpdate() {
 			localStorage.allObjects(queue: storageQueue) { [weak self] (results) in
-				self?.collectionSubject.onNext(results)
+				self?.collectionHolder.notify(results)
 			}
 		}
 	}

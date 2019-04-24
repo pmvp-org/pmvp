@@ -36,6 +36,14 @@
 		7E149300225D90E500A26743 /* ProviderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492FF225D90E500A26743 /* ProviderBase.swift */; };
 		7E6A6634226E6A070067F69B /* MockLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6A6633226E6A070067F69B /* MockLocalStorage.swift */; };
 		7E6A6636226E6A410067F69B /* MockRemoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6A6635226E6A410067F69B /* MockRemoteStorage.swift */; };
+		7E6A664C226FF1200067F69B /* KeyedSubjectHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6A664B226FF1200067F69B /* KeyedSubjectHolder.swift */; };
+		7E6A664E226FF6070067F69B /* SubjectHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6A664D226FF6070067F69B /* SubjectHolder.swift */; };
+		7E6A6650226FF7D90067F69B /* CollectionSubjectHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6A664F226FF7D90067F69B /* CollectionSubjectHolder.swift */; };
+		7E6A6652226FF8FB0067F69B /* KeyedCollectionSubjectHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6A6651226FF8FB0067F69B /* KeyedCollectionSubjectHolder.swift */; };
+		7EB4DE5A227014BD00EF2AFE /* SubjectHolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4DE59227014BD00EF2AFE /* SubjectHolderTests.swift */; };
+		7EB4DE5C2270166C00EF2AFE /* KeyedSubjectHolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4DE5B2270166C00EF2AFE /* KeyedSubjectHolderTests.swift */; };
+		7EB4DE5E2270182500EF2AFE /* CollectionSubjectHolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4DE5D2270182500EF2AFE /* CollectionSubjectHolderTests.swift */; };
+		7EB4DE60227019F800EF2AFE /* KeyedCollectionSubjectHolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4DE5F227019F800EF2AFE /* KeyedCollectionSubjectHolderTests.swift */; };
 		7ECC5C17226E2DB70015A91B /* Trackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC5C16226E2DB70015A91B /* Trackable.swift */; };
 		87699565589E244EDB5A10C3 /* Pods_PMVPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA91BD3B69C46666D69C570 /* Pods_PMVPTests.framework */; };
 /* End PBXBuildFile section */
@@ -82,6 +90,14 @@
 		7E1492FF225D90E500A26743 /* ProviderBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderBase.swift; sourceTree = "<group>"; };
 		7E6A6633226E6A070067F69B /* MockLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocalStorage.swift; sourceTree = "<group>"; };
 		7E6A6635226E6A410067F69B /* MockRemoteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRemoteStorage.swift; sourceTree = "<group>"; };
+		7E6A664B226FF1200067F69B /* KeyedSubjectHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedSubjectHolder.swift; sourceTree = "<group>"; };
+		7E6A664D226FF6070067F69B /* SubjectHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectHolder.swift; sourceTree = "<group>"; };
+		7E6A664F226FF7D90067F69B /* CollectionSubjectHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSubjectHolder.swift; sourceTree = "<group>"; };
+		7E6A6651226FF8FB0067F69B /* KeyedCollectionSubjectHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedCollectionSubjectHolder.swift; sourceTree = "<group>"; };
+		7EB4DE59227014BD00EF2AFE /* SubjectHolderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectHolderTests.swift; sourceTree = "<group>"; };
+		7EB4DE5B2270166C00EF2AFE /* KeyedSubjectHolderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedSubjectHolderTests.swift; sourceTree = "<group>"; };
+		7EB4DE5D2270182500EF2AFE /* CollectionSubjectHolderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSubjectHolderTests.swift; sourceTree = "<group>"; };
+		7EB4DE5F227019F800EF2AFE /* KeyedCollectionSubjectHolderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedCollectionSubjectHolderTests.swift; sourceTree = "<group>"; };
 		7ECC5C16226E2DB70015A91B /* Trackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trackable.swift; sourceTree = "<group>"; };
 		80A2D1D5FF16E625B78A517D /* Pods_PMVP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PMVP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A122AAE1F8EA9856A95506AB /* Pods-PMVP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMVP.release.xcconfig"; path = "Target Support Files/Pods-PMVP/Pods-PMVP.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +177,10 @@
 				7E1492E6225C3FC200A26743 /* Storage.swift */,
 				7E1492E8225C3FFE00A26743 /* AbstractObject.swift */,
 				7ECC5C16226E2DB70015A91B /* Trackable.swift */,
+				7E6A664B226FF1200067F69B /* KeyedSubjectHolder.swift */,
+				7E6A6651226FF8FB0067F69B /* KeyedCollectionSubjectHolder.swift */,
+				7E6A664D226FF6070067F69B /* SubjectHolder.swift */,
+				7E6A664F226FF7D90067F69B /* CollectionSubjectHolder.swift */,
 			);
 			path = PMVP;
 			sourceTree = "<group>";
@@ -168,6 +188,7 @@
 		7E1492C1225C342700A26743 /* PMVPTests */ = {
 			isa = PBXGroup;
 			children = (
+				7EB4DE58227014AC00EF2AFE /* Holders */,
 				7E1492EA225C490A00A26743 /* Example */,
 				7E1492C4225C342700A26743 /* Info.plist */,
 				7E1492F7225C4C3100A26743 /* ProviderTests.swift */,
@@ -199,6 +220,17 @@
 				7E6A6635226E6A410067F69B /* MockRemoteStorage.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		7EB4DE58227014AC00EF2AFE /* Holders */ = {
+			isa = PBXGroup;
+			children = (
+				7EB4DE59227014BD00EF2AFE /* SubjectHolderTests.swift */,
+				7EB4DE5B2270166C00EF2AFE /* KeyedSubjectHolderTests.swift */,
+				7EB4DE5D2270182500EF2AFE /* CollectionSubjectHolderTests.swift */,
+				7EB4DE5F227019F800EF2AFE /* KeyedCollectionSubjectHolderTests.swift */,
+			);
+			path = Holders;
 			sourceTree = "<group>";
 		};
 		C9FA2C101353B559835B354C /* Pods */ = {
@@ -405,8 +437,11 @@
 				7ECC5C17226E2DB70015A91B /* Trackable.swift in Sources */,
 				7E1492D3225C348D00A26743 /* ViewModel.swift in Sources */,
 				7E1492D5225C387E00A26743 /* Presenter.swift in Sources */,
+				7E6A664E226FF6070067F69B /* SubjectHolder.swift in Sources */,
 				7E1492E9225C3FFE00A26743 /* AbstractObject.swift in Sources */,
+				7E6A664C226FF1200067F69B /* KeyedSubjectHolder.swift in Sources */,
 				7E1492CF225C344600A26743 /* ViewModelState.swift in Sources */,
+				7E6A6650226FF7D90067F69B /* CollectionSubjectHolder.swift in Sources */,
 				7E1492E3225C3ECB00A26743 /* RemoteObject.swift in Sources */,
 				7E1492E7225C3FC200A26743 /* Storage.swift in Sources */,
 				7E1492DF225C3DEC00A26743 /* Converter.swift in Sources */,
@@ -415,6 +450,7 @@
 				7E1492DB225C3AC700A26743 /* LocalStorage.swift in Sources */,
 				7E1492E1225C3EA900A26743 /* LocalObject.swift in Sources */,
 				7E6A6636226E6A410067F69B /* MockRemoteStorage.swift in Sources */,
+				7E6A6652226FF8FB0067F69B /* KeyedCollectionSubjectHolder.swift in Sources */,
 				7E1492D7225C3A3C00A26743 /* Proxy.swift in Sources */,
 				7E1492E5225C3F5200A26743 /* RemoteStorage.swift in Sources */,
 			);
@@ -424,10 +460,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EB4DE5C2270166C00EF2AFE /* KeyedSubjectHolderTests.swift in Sources */,
 				7E1492EC225C494400A26743 /* PlaylistProxy.swift in Sources */,
+				7EB4DE5E2270182500EF2AFE /* CollectionSubjectHolderTests.swift in Sources */,
 				7E1492FC225C4DB900A26743 /* PlaylistRemoteConverter.swift in Sources */,
 				7E1492F4225C4B7200A26743 /* PlaylistRemoteObject.swift in Sources */,
 				7E1492F6225C4BCE00A26743 /* PlaylistProvider.swift in Sources */,
+				7EB4DE5A227014BD00EF2AFE /* SubjectHolderTests.swift in Sources */,
 				7E1492FA225C4C9000A26743 /* PlaylistLocalConverter.swift in Sources */,
 				7E1492F8225C4C3100A26743 /* ProviderTests.swift in Sources */,
 				7E1492FE225D8FCB00A26743 /* ProviderRxTests.swift in Sources */,
@@ -435,6 +474,7 @@
 				7E149300225D90E500A26743 /* ProviderBase.swift in Sources */,
 				7E1492F2225C4B2F00A26743 /* PlaylistRemoteStorage.swift in Sources */,
 				7E1492F0225C4A3200A26743 /* Playlist.swift in Sources */,
+				7EB4DE60227019F800EF2AFE /* KeyedCollectionSubjectHolderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

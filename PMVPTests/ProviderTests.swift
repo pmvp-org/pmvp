@@ -79,9 +79,13 @@ class ProviderTests: ProviderBase {
 			local.playlists[p.key] = p
 		}
 		let response = expectation(description: "received")
-		var updatedList = [PlaylistProxy](local.playlists.values)
-		updatedList[0].name = "example6"
-		updatedList[1].name = "example7"
+		var map: [String: PlaylistProxy] = [:]
+		for k in (1...2) {
+			map["playlist\(k)"] = local.playlists["playlist\(k)"]
+		}
+		map["playlist1"]?.name = "example6"
+		map["playlist2"]?.name = "example7"
+		var updatedList = [PlaylistProxy](map.values)
 		provider.update(updatedList, queue: .global()) { (results) in
 			XCTAssertEqual(results.count, 2)
 			if let first = results.first {
