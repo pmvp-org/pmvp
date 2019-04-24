@@ -12,11 +12,11 @@ import RxSwift
 
 class ProviderRxTests: ProviderBase {
 
-    func testObservable() {
+    func testNewObjects() {
 		local.playlists = [:]
 
 		let emptyExp = expectation(description: "empty")
-		let d0 = provider.object(for: "playlist1").subscribe(onNext: { v0 in
+		_ = provider.object(for: "playlist1").subscribe(onNext: { v0 in
 			if v0 == nil {
 				emptyExp.fulfill()
 			}
@@ -26,7 +26,10 @@ class ProviderRxTests: ProviderBase {
 		})
 
 		wait(for: [emptyExp], timeout: 1.0)
-		d0.dispose()
+	}
+
+	func testEditObjects() {
+		local.playlists = [:]
 
 		let notEmptyExp = expectation(description: "no longer empty")
 		_ = provider.object(for: "playlist1").subscribe(onNext: { v1 in
@@ -45,5 +48,24 @@ class ProviderRxTests: ProviderBase {
 
 		wait(for: [notEmptyExp, updatedExp], timeout: 1.0)
     }
+
+	func testExisting() {
+		let key = "playlist1"
+		let name = "Playlist 1"
+		var existingData: [String: PlaylistProxy] = [:]
+		existingData[key] = PlaylistProxy(id: key, name: name)
+		local.playlists = existingData
+
+		let existingExp = expectation(description: "existing")
+		_ = provider.object(for: key).subscribe(onNext: { v0 in
+			if let v0 = v0 {
+				XCTAssertEqual(v0.key, key)
+				XCTAssertEqual(v0.name, name)
+				existingExp.fulfill()
+			}
+		})
+
+		wait(for: [existingExp], timeout: 1.0)
+	}
 
 }
