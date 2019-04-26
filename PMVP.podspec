@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
   spec.homepage		= 'https://github.com/agoodman/pmvp'
   spec.authors		= { 
 				'Aubrey Goodman' => 'aubrey.goodman@gmail.com',
-				'Antony Zhuang' => 'antonyzhuang@gmail.com',
+				'Antony Zhuang' => 'antony.juang@gmail.com',
 				'Donny Kuang' => 'jiahekuang@gmail.com',
 				'Mimi Chenyao' => 'mimichenyao@gmail.com'
 			}
