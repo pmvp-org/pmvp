@@ -23,7 +23,7 @@ open class Presenter<T: ViewModelState, N: ViewModelIntent> {
 	open func registerObservers() {
 	}
 
-	final func disposeObservers() {
+	public final func disposeObservers() {
 		disposeBag = DisposeBag()
 	}
 

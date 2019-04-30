@@ -15,8 +15,13 @@ class ProviderTests: ProviderBase {
 		local.playlists = [:]
 		let response = expectation(description: "received")
 		provider.object(for: "playlist1", queue: .global()) { (result) in
-			if result == nil {
-				response.fulfill()
+			switch result {
+			case .success(let object):
+				if object == nil {
+					response.fulfill()
+				}
+			default:
+				break
 			}
 		}
 		waitForExpectations(timeout: 1.0, handler: nil)
@@ -28,10 +33,15 @@ class ProviderTests: ProviderBase {
 		local.playlists["playlist1"] = playlist
 		let response = expectation(description: "received")
 		provider.object(for: "playlist1", queue: .global()) { (result) in
-			if let result = result {
-				XCTAssertEqual(result.name, playlist.name)
-				XCTAssertEqual(result.key, playlist.key)
-				response.fulfill()
+			switch result {
+			case .success(let object):
+				if let object = object {
+					XCTAssertEqual(object.name, playlist.name)
+					XCTAssertEqual(object.key, playlist.key)
+					response.fulfill()
+				}
+			default:
+				break
 			}
 		}
 		waitForExpectations(timeout: 1.0, handler: nil)
@@ -45,8 +55,13 @@ class ProviderTests: ProviderBase {
 		}
 		let response = expectation(description: "received")
 		provider.objects(for: ["playlist1", "playlist2"], queue: .global()) { (results) in
-			XCTAssertEqual(results.count, 2)
-			response.fulfill()
+			switch results {
+			case .success(let objects):
+				XCTAssertEqual(objects.count, 2)
+				response.fulfill()
+			default:
+				break
+			}
 		}
 		waitForExpectations(timeout: 1.0, handler: nil)
 	}
@@ -58,8 +73,13 @@ class ProviderTests: ProviderBase {
 		p.name = "example2"
 		let response = expectation(description: "received")
 		provider.update(p, queue: .global()) { (result) in
-			XCTAssertEqual(result.name, p.name)
-			response.fulfill()
+			switch result {
+			case .success(let object):
+				XCTAssertEqual(object.name, p.name)
+				response.fulfill()
+			default:
+				break
+			}
 		}
 		waitForExpectations(timeout: 1.0, handler: nil)
 
@@ -87,14 +107,19 @@ class ProviderTests: ProviderBase {
 		map["playlist2"]?.name = "example7"
 		var updatedList = [PlaylistProxy](map.values)
 		provider.update(updatedList, queue: .global()) { (results) in
-			XCTAssertEqual(results.count, 2)
-			if let first = results.first {
-				XCTAssertEqual(first.name, updatedList[0].name)
+			switch results {
+			case .success(let objects):
+				XCTAssertEqual(objects.count, 2)
+				if let first = objects.first {
+					XCTAssertEqual(first.name, updatedList[0].name)
+				}
+				if let last = objects.last {
+					XCTAssertEqual(last.name, updatedList[1].name)
+				}
+				response.fulfill()
+			default:
+				break
 			}
-			if let last = results.last {
-				XCTAssertEqual(last.name, updatedList[1].name)
-			}
-			response.fulfill()
 		}
 		waitForExpectations(timeout: 1.0, handler: nil)
 
@@ -115,9 +140,14 @@ class ProviderTests: ProviderBase {
 		local.playlists["playlist1"] = playlist
 		let response = expectation(description: "received")
 		provider.destroy(playlist, queue: .global()) { (result) in
-			XCTAssertEqual(result.name, playlist.name)
-			XCTAssertEqual(result.key, playlist.key)
-			response.fulfill()
+			switch result {
+			case .success(let object):
+				XCTAssertEqual(object.name, playlist.name)
+				XCTAssertEqual(object.key, playlist.key)
+				response.fulfill()
+			default:
+				break
+			}
 		}
 		waitForExpectations(timeout: 1.0, handler: nil)
 

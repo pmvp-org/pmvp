@@ -9,5 +9,5 @@
 import RxSwift
 @testable import PMVP
 
-class PlaylistProvider: Provider<String, PlaylistProxy, Playlist, PlaylistRemoteObject, PlaylistLocalStorage, PlaylistRemoteStorage> {
+class PlaylistProvider: Provider<String, PlaylistProxy, Playlist, PlaylistRemoteObject, PlaylistError, PlaylistLocalStorage, PlaylistRemoteStorage> {
 }
