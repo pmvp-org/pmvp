@@ -7,8 +7,8 @@
 //
 
 public protocol Proxyable {
-	associatedtype ProxyKey: Hashable
-	var key: ProxyKey { get }
+	associatedtype K: Hashable
+	var key: K { get }
 }
 
 open class Proxy<K: Hashable>: Equatable, Proxyable {

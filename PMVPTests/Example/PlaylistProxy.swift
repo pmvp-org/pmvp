@@ -8,6 +8,10 @@
 
 @testable import PMVP
 
+enum PlaylistError: Error {
+	case unknown
+}
+
 class PlaylistProxy: Proxy<String> {
 
 	var name: String = ""
