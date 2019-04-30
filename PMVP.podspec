@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name		= 'PMVP'
-  spec.version		= '0.3'
+  spec.version		= '0.4'
   spec.license		= { :type => 'MIT' }
   spec.homepage		= 'https://github.com/agoodman/pmvp'
   spec.authors		= { 
@@ -31,7 +31,7 @@ to no exposure to Rx, they were able to adapt, refine, and champion the architec
 We are proud of our 4.5 star rating, and we believe it demonstrates the awesome power 
 of PMVP.
 			DESC
-  spec.source		= { :git => 'https://github.com/agoodman/pmvp.git', :tag => '0.3' }
+  spec.source		= { :git => 'https://github.com/agoodman/pmvp.git', :tag => '0.4' }
   spec.swift_version	= '4.0'
   spec.platform		= :ios
   spec.ios.deployment_target = '8.0'
