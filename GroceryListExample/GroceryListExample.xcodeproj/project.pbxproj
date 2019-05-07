@@ -19,6 +19,11 @@
 		7E06A5052266BED400D11796 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E06A5042266BED400D11796 /* ItemTableViewController.swift */; };
 		7E06A5082266D37800D11796 /* Trampoline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E06A5062266D37800D11796 /* Trampoline.storyboard */; };
 		7E06A50A2266D39F00D11796 /* TrampolineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E06A5092266D39F00D11796 /* TrampolineViewController.swift */; };
+		7E257107227FA725005729F7 /* ItemKeyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E257106227FA725005729F7 /* ItemKeyFactory.swift */; };
+		7E25711922811A98005729F7 /* ItemViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E25710922811A69005729F7 /* ItemViewTests.swift */; };
+		7E25711B22811BB0005729F7 /* ItemMockLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E25711A22811BB0005729F7 /* ItemMockLocalStorage.swift */; };
+		7E25711D22811C2E005729F7 /* ItemMockRemoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E25711C22811C2E005729F7 /* ItemMockRemoteStorage.swift */; };
+		7E25711F22811D00005729F7 /* Maestro+MockItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E25711E22811D00005729F7 /* Maestro+MockItem.swift */; };
 		7ECC5C11226801D90015A91B /* ItemEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC5C10226801D90015A91B /* ItemEditViewController.swift */; };
 		7ECC5C132268133F0015A91B /* ItemEditPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC5C122268133F0015A91B /* ItemEditPresenter.swift */; };
 		7ECC5C15226815510015A91B /* ItemEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC5C14226815510015A91B /* ItemEditViewModel.swift */; };
@@ -32,6 +37,16 @@
 		7EF31D282266AE2000DB6E6D /* ItemLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF31D272266AE2000DB6E6D /* ItemLocal.swift */; };
 		9200C05AFCFBA00BE544C55E /* Pods_GroceryListExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E0335823F2D350D96BCF96 /* Pods_GroceryListExample.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7E25711422811A91005729F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EF31CF72266AA1700DB6E6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EF31CFE2266AA1700DB6E6D;
+			remoteInfo = GroceryListExample;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0899C23E64139B62DD4C3488 /* Pods-GroceryListExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListExample.release.xcconfig"; path = "Target Support Files/Pods-GroceryListExample/Pods-GroceryListExample.release.xcconfig"; sourceTree = "<group>"; };
@@ -48,6 +63,13 @@
 		7E06A5042266BED400D11796 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		7E06A5072266D37800D11796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Trampoline.storyboard; sourceTree = "<group>"; };
 		7E06A5092266D39F00D11796 /* TrampolineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrampolineViewController.swift; sourceTree = "<group>"; };
+		7E257106227FA725005729F7 /* ItemKeyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemKeyFactory.swift; sourceTree = "<group>"; };
+		7E25710922811A69005729F7 /* ItemViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewTests.swift; sourceTree = "<group>"; };
+		7E25710F22811A91005729F7 /* GroceryListExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryListExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E25711322811A91005729F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E25711A22811BB0005729F7 /* ItemMockLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMockLocalStorage.swift; sourceTree = "<group>"; };
+		7E25711C22811C2E005729F7 /* ItemMockRemoteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMockRemoteStorage.swift; sourceTree = "<group>"; };
+		7E25711E22811D00005729F7 /* Maestro+MockItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Maestro+MockItem.swift"; sourceTree = "<group>"; };
 		7ECC5C10226801D90015A91B /* ItemEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditViewController.swift; sourceTree = "<group>"; };
 		7ECC5C122268133F0015A91B /* ItemEditPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditPresenter.swift; sourceTree = "<group>"; };
 		7ECC5C14226815510015A91B /* ItemEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditViewModel.swift; sourceTree = "<group>"; };
@@ -65,6 +87,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7E25710C22811A91005729F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7EF31CFC2266AA1700DB6E6D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -123,11 +152,21 @@
 			path = Trampoline;
 			sourceTree = "<group>";
 		};
+		7E25711022811A91005729F7 /* GroceryListExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7E25710922811A69005729F7 /* ItemViewTests.swift */,
+				7E25711322811A91005729F7 /* Info.plist */,
+			);
+			path = GroceryListExampleUITests;
+			sourceTree = "<group>";
+		};
 		7EF31CF62266AA1700DB6E6D = {
 			isa = PBXGroup;
 			children = (
 				7ECEED692266AEC700BC9D2A /* Podfile */,
 				7EF31D012266AA1700DB6E6D /* GroceryListExample */,
+				7E25711022811A91005729F7 /* GroceryListExampleUITests */,
 				7EF31D002266AA1700DB6E6D /* Products */,
 				4815DE7ED05240816D620F27 /* Pods */,
 				F1AC1AEEFD27F49F59290815 /* Frameworks */,
@@ -138,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				7EF31CFF2266AA1700DB6E6D /* GroceryListExample.app */,
+				7E25710F22811A91005729F7 /* GroceryListExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				7EF31D272266AE2000DB6E6D /* ItemLocal.swift */,
+				7E257106227FA725005729F7 /* ItemKeyFactory.swift */,
 				7EF31D162266AADD00DB6E6D /* ItemProxy.swift */,
 				7E06A4EF2266AFA400D11796 /* ItemLocalStorage.swift */,
 				7E06A4F12266B15800D11796 /* ItemLocalConverter.swift */,
@@ -178,6 +219,9 @@
 				7E06A4FC2266BA0F00D11796 /* ItemRemote.swift */,
 				7E06A4FE2266BA3500D11796 /* ItemRemoteStorage.swift */,
 				7E06A5002266BADD00D11796 /* ItemRemoteConverter.swift */,
+				7E25711A22811BB0005729F7 /* ItemMockLocalStorage.swift */,
+				7E25711C22811C2E005729F7 /* ItemMockRemoteStorage.swift */,
+				7E25711E22811D00005729F7 /* Maestro+MockItem.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -193,6 +237,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7E25710E22811A91005729F7 /* GroceryListExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E25711622811A91005729F7 /* Build configuration list for PBXNativeTarget "GroceryListExampleUITests" */;
+			buildPhases = (
+				7E25710B22811A91005729F7 /* Sources */,
+				7E25710C22811A91005729F7 /* Frameworks */,
+				7E25710D22811A91005729F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E25711522811A91005729F7 /* PBXTargetDependency */,
+			);
+			name = GroceryListExampleUITests;
+			productName = GroceryListExampleUITests;
+			productReference = 7E25710F22811A91005729F7 /* GroceryListExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		7EF31CFE2266AA1700DB6E6D /* GroceryListExample */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7EF31D112266AA1800DB6E6D /* Build configuration list for PBXNativeTarget "GroceryListExample" */;
@@ -222,6 +284,10 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Aubrey Goodman";
 				TargetAttributes = {
+					7E25710E22811A91005729F7 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 7EF31CFE2266AA1700DB6E6D;
+					};
 					7EF31CFE2266AA1700DB6E6D = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -241,11 +307,19 @@
 			projectRoot = "";
 			targets = (
 				7EF31CFE2266AA1700DB6E6D /* GroceryListExample */,
+				7E25710E22811A91005729F7 /* GroceryListExampleUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7E25710D22811A91005729F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7EF31CFD2266AA1700DB6E6D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,6 +368,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-GroceryListExample/Pods-GroceryListExample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/PMVP/PMVP.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -302,6 +377,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMVP.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,21 +388,33 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7E25710B22811A91005729F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E25711922811A98005729F7 /* ItemViewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7EF31CFB2266AA1700DB6E6D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7E06A4FD2266BA0F00D11796 /* ItemRemote.swift in Sources */,
+				7E25711D22811C2E005729F7 /* ItemMockRemoteStorage.swift in Sources */,
 				7ECC5C15226815510015A91B /* ItemEditViewModel.swift in Sources */,
+				7E25711B22811BB0005729F7 /* ItemMockLocalStorage.swift in Sources */,
 				7EF31D282266AE2000DB6E6D /* ItemLocal.swift in Sources */,
 				7EF31D172266AADD00DB6E6D /* ItemProxy.swift in Sources */,
 				7E06A4FF2266BA3500D11796 /* ItemRemoteStorage.swift in Sources */,
 				7EF31D052266AA1700DB6E6D /* ViewController.swift in Sources */,
 				7E06A4F92266B92F00D11796 /* Maestro.swift in Sources */,
 				7E06A5052266BED400D11796 /* ItemTableViewController.swift in Sources */,
+				7E25711F22811D00005729F7 /* Maestro+MockItem.swift in Sources */,
 				7E06A4FB2266B9F300D11796 /* ItemProvider.swift in Sources */,
 				7E06A4F22266B15800D11796 /* ItemLocalConverter.swift in Sources */,
 				7ECC5C132268133F0015A91B /* ItemEditPresenter.swift in Sources */,
+				7E257107227FA725005729F7 /* ItemKeyFactory.swift in Sources */,
 				7E06A5032266BE5900D11796 /* ItemListViewController.swift in Sources */,
 				7EF31D032266AA1700DB6E6D /* AppDelegate.swift in Sources */,
 				7ECC5C11226801D90015A91B /* ItemEditViewController.swift in Sources */,
@@ -338,6 +426,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7E25711522811A91005729F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7EF31CFE2266AA1700DB6E6D /* GroceryListExample */;
+			targetProxy = 7E25711422811A91005729F7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7E06A5062266D37800D11796 /* Trampoline.storyboard */ = {
@@ -367,6 +463,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7E25711722811A91005729F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 99357UCVXN;
+				INFOPLIST_FILE = GroceryListExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aubreygoodman.GroceryListExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GroceryListExample;
+			};
+			name = Debug;
+		};
+		7E25711822811A91005729F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 99357UCVXN;
+				INFOPLIST_FILE = GroceryListExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aubreygoodman.GroceryListExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GroceryListExample;
+			};
+			name = Release;
+		};
 		7EF31D0F2266AA1800DB6E6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -524,6 +658,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7E25711622811A91005729F7 /* Build configuration list for PBXNativeTarget "GroceryListExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E25711722811A91005729F7 /* Debug */,
+				7E25711822811A91005729F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7EF31CFA2266AA1700DB6E6D /* Build configuration list for PBXProject "GroceryListExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

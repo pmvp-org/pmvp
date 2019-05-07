@@ -8,14 +8,13 @@
 
 import PMVP
 
-class ItemProxy: Proxy, CustomStringConvertible {
+class ItemProxy: Proxy<String>, CustomStringConvertible {
 
-	var key: String
 	var value: String
 
 	init(key: String, value: String) {
-		self.key = key
 		self.value = value
+		super.init(key: key)
 	}
 
 	static func ==(_ a: ItemProxy, _ b: ItemProxy) -> Bool {

@@ -8,25 +8,26 @@
 
 import PMVP
 
-class ItemLocalStorage: LocalStorage<String, ItemLocal, ItemProxy> {
+class ItemLocalStorage: LocalStorage<String, ItemLocal, ItemProxy, ItemError> {
 
 	private var items: [String: ItemLocal] = [:]
 
-	override func allObjects(queue: DispatchQueue, callback: @escaping ([ItemProxy]) -> Void) {
+	override func allObjects(queue: DispatchQueue, callback: @escaping (Result<[ItemProxy], ItemError>) -> Void) {
 		let results = items.values.map({ self.converter.toProxy($0) })
-		queue.async { callback(results) }
+		queue.async { callback(.success(results)) }
 	}
 
-	override func object(for key: String, queue: DispatchQueue, callback: @escaping (ItemProxy?) -> Void) {
+	override func object(for key: String, queue: DispatchQueue, callback: @escaping (Result<ItemProxy?, ItemError>) -> Void) {
 		if let result = items[key] {
-			queue.async { callback(self.converter.toProxy(result)) }
+			let proxy = converter.toProxy(result)
+			queue.async { callback(.success(proxy)) }
 		}
 		else {
-			queue.async { callback(nil) }
+			queue.async { callback(.success(nil)) }
 		}
 	}
 
-	override func objects(for keys: [String], queue: DispatchQueue, callback: @escaping ([ItemProxy]) -> Void) {
+	override func objects(for keys: [String], queue: DispatchQueue, callback: @escaping (Result<[ItemProxy], ItemError>) -> Void) {
 		var results: [ItemLocal] = []
 		results.reserveCapacity(keys.count)
 		for key in keys {
@@ -35,24 +36,24 @@ class ItemLocalStorage: LocalStorage<String, ItemLocal, ItemProxy> {
 			}
 		}
 		let mappedResults = results.map({ self.converter.toProxy($0) })
-		queue.async { callback(mappedResults) }
+		queue.async { callback(.success(mappedResults)) }
 	}
 
-	override func update(_ object: ItemProxy, queue: DispatchQueue, callback: @escaping (ItemProxy) -> Void) {
+	override func update(_ object: ItemProxy, queue: DispatchQueue, callback: @escaping (Result<ItemProxy, ItemError>) -> Void) {
 		items[object.key] = converter.fromProxy(object)
-		queue.async { callback(object) }
+		queue.async { callback(.success(object)) }
 	}
 
-	override func update(_ objects: [ItemProxy], queue: DispatchQueue, callback: @escaping ([ItemProxy]) -> Void) {
+	override func update(_ objects: [ItemProxy], queue: DispatchQueue, callback: @escaping (Result<[ItemProxy], ItemError>) -> Void) {
 		for obj in objects {
 			items[obj.key] = converter.fromProxy(obj)
 		}
-		queue.async { callback(objects) }
+		queue.async { callback(.success(objects)) }
 	}
 
-	override func destroy(_ object: ItemProxy, queue: DispatchQueue, callback: @escaping (ItemProxy) -> Void) {
+	override func destroy(_ object: ItemProxy, queue: DispatchQueue, callback: @escaping (Result<ItemProxy, ItemError>) -> Void) {
 		items.removeValue(forKey: object.key)
-		queue.async { callback(object) }
+		queue.async { callback(.success(object)) }
 	}
 
 }

@@ -8,7 +8,7 @@
 
 import PMVP
 
-class ItemLocalConverter: Converter<ItemLocal, ItemProxy> {
+class ItemLocalConverter: Converter<String, ItemLocal, ItemProxy> {
 
 	override func fromProxy(_ proxy: ItemProxy) -> ItemLocal {
 		var local = ItemLocal(key: proxy.key, value: proxy.value)

@@ -9,22 +9,19 @@
 import PMVP
 import RxSwift
 
-class ItemProvider: Provider<String, ItemProxy, ItemLocal, ItemRemote, ItemLocalStorage, ItemRemoteStorage> {
+enum ItemError: Error {
+	case unknown
+}
 
-	override func createSubject() -> BehaviorSubject<ItemProxy?> {
-		return BehaviorSubject<ItemProxy?>(value: nil)
-	}
+class ItemProvider: Provider<String, ItemProxy, ItemLocal, ItemRemote, ItemError, ItemLocalStorage, ItemRemoteStorage> {
 
-	override func createCollectionSubject() -> BehaviorSubject<[ItemProxy]> {
-		return BehaviorSubject<[ItemProxy]>(value: [])
-	}
+	private let keyFactory = ItemKeyFactory()
 
-	override func createKeyListSubject() -> BehaviorSubject<[String]> {
-		return BehaviorSubject<[String]>(value: [])
-	}
-
-	override func key(for object: ItemProxy?) -> String? {
-		return object?.key
+	func buildItem(value: String) -> ItemProxy {
+		let key = keyFactory.generate()
+		let newItem = ItemProxy(key: key, value: value)
+		_ = keyFactory.claim(key)
+		return newItem
 	}
 
 }

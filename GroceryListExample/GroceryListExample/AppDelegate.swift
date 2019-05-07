@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 	func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-		Maestro.start()
+		let arguments = ProcessInfo.processInfo.arguments
+		Maestro.start(options: arguments)
 		return true
 	}
 

@@ -14,7 +14,7 @@ final class Maestro {
 
 	private static let readySubject = BehaviorSubject<Bool>(value: false)
 
-	private let itemProvider: ItemProvider
+	let itemProvider: ItemProvider
 
 	private init(itemProvider: ItemProvider) {
 		self.itemProvider = itemProvider
@@ -24,12 +24,24 @@ final class Maestro {
 		return readySubject
 	}
 
-	class func start() {
-		let itemLocalConverter = ItemLocalConverter()
-		let itemLocal = ItemLocalStorage(converter: itemLocalConverter)
-		let itemRemoteConverter = ItemRemoteConverter()
-		let itemRemote = ItemRemoteStorage(converter: itemRemoteConverter)
-		let itemProvider = ItemProvider(queueName: "item", localStorage: itemLocal, remoteStorage: itemRemote)
+	class func start(options: [String]) {
+		let itemProvider: ItemProvider
+		let useMocks = options.contains("UseMocks")
+		if useMocks {
+			let localConv = ItemLocalConverter()
+			let itemLocal = ItemMockLocalStorage(converter: localConv)
+			configure(localStorage: itemLocal, options: options)
+			let remoteConv = ItemRemoteConverter()
+			let itemRemote = ItemMockRemoteStorage(converter: remoteConv)
+			itemProvider = ItemProvider(queueName: "item", localStorage: itemLocal, remoteStorage: itemRemote)
+		}
+		else {
+			let itemLocalConverter = ItemLocalConverter()
+			let itemLocal = ItemLocalStorage(converter: itemLocalConverter)
+			let itemRemoteConverter = ItemRemoteConverter()
+			let itemRemote = ItemRemoteStorage(converter: itemRemoteConverter)
+			itemProvider = ItemProvider(queueName: "item", localStorage: itemLocal, remoteStorage: itemRemote)
+		}
 		instance = Maestro(itemProvider: itemProvider)
 		NSLog("maestro.ready")
 		readySubject.onNext(true)

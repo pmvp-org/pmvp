@@ -117,6 +117,8 @@ class ItemListViewModel: ViewModel<ItemListViewState, ItemListViewIntent> {
 
 	private func createItem() {
 		guard expect(.valid) else { return }
+		let newItem = Maestro.Item.buildItem(value: "")
+		selectedItemSubject.onNext(newItem)
 		transition(to: .creating)
 	}
 

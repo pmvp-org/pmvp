@@ -15,4 +15,5 @@ target 'GroceryListExample' do
 #	pod 'PMVP', :git => 'https://github.com/agoodman/pmvp.git', :tag => '0.1'
 	pod 'RxSwift', '~> 4.0'
 	pod 'RxCocoa', '~> 4.0'
+	pod 'RxGesture'
 end

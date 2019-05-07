@@ -8,10 +8,9 @@
 
 import UIKit
 import RxSwift
+import RxGesture
 
 class ItemEditViewController: UIViewController {
-
-	@IBOutlet private weak var keyText: UITextField!
 
 	@IBOutlet private weak var valueText: UITextField!
 
@@ -31,7 +30,6 @@ class ItemEditViewController: UIViewController {
         super.viewDidLoad()
 		viewModel = ItemEditViewModel(parent: listViewModel)
 		presenter = ItemEditPresenter(viewModel: viewModel,
-									  keyText: keyText,
 									  valueText: valueText,
 									  cancelButton: cancelButton,
 									  doneButton: doneButton)
@@ -43,22 +41,32 @@ class ItemEditViewController: UIViewController {
 		presenter.registerObservers()
 	}
 
-	private func registerObservers() {
-		// when user changes key, update model to match
-		keyText.rx.observe(String.self, "text")
-			.skip(1)
-			.do(onNext: { NSLog("item_edit.user_key(\($0))") })
-			.subscribe(onNext: { [weak self] key in
-				if let key = key {
-					self?.viewModel.onIntent(.key(key))
-				}
-			})
-			.disposed(by: disposeBag)
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		valueText.becomeFirstResponder()
+	}
 
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		disposeObservers()
+		presenter.disposeObservers()
+	}
+
+	private func registerObservers() {
 		// when user changes value, update model to match
 		valueText.rx.observe(String.self, "text")
 			.skip(1)
 			.do(onNext: { NSLog("item_edit.user_value(\($0))") })
+			.subscribe(onNext: { [weak self] value in
+				if let value = value {
+					self?.viewModel.onIntent(.value(value))
+				}
+			})
+			.disposed(by: disposeBag)
+
+		valueText.rx.controlEvent([UIControl.Event.valueChanged])
+			.withLatestFrom(valueText.rx.text)
+			.observeOn(MainScheduler.asyncInstance)
 			.subscribe(onNext: { [weak self] value in
 				if let value = value {
 					self?.viewModel.onIntent(.value(value))
@@ -72,6 +80,10 @@ class ItemEditViewController: UIViewController {
 
 		doneButton.rx.tap
 			.subscribe(onNext: { [weak self] _ in self?.doneIntent() })
+			.disposed(by: disposeBag)
+
+		view.rx.tapGesture()
+			.subscribe(onNext: { [weak self] _ in self?.valueText.resignFirstResponder() })
 			.disposed(by: disposeBag)
 
 		listViewModel.state()

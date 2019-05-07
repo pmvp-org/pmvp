@@ -8,7 +8,7 @@
 
 import PMVP
 
-class ItemRemoteConverter: Converter<ItemRemote, ItemProxy> {
+class ItemRemoteConverter: Converter<String, ItemRemote, ItemProxy> {
 
 	override func fromProxy(_ proxy: ItemProxy) -> ItemRemote {
 		fatalError("unused")

@@ -57,7 +57,6 @@ class ItemTableViewController: UITableViewController {
 
 		let item: ItemProxy = items[indexPath.row]
 		cell.textLabel?.text = item.value
-		cell.detailTextLabel?.text = item.key
 		cell.accessoryType = .disclosureIndicator
 
         return cell
