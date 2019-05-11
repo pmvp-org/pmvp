@@ -3,7 +3,8 @@
 //  PMVP
 //
 //  Created by Aubrey Goodman on 4/22/19.
-//  Copyright © 2019 Aubrey Goodman. All rights reserved.
+//  SPDX-License-Identifier: MIT
+//  Copyright © 2019 Aubrey Goodman.
 //
 
 open class MockLocalStorage<K: Hashable, T: Proxy<K>, L: LocalObject, E: Error>: LocalStorage<K, L, T, E> {

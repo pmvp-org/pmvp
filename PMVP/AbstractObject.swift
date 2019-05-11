@@ -3,7 +3,8 @@
 //  PMVP
 //
 //  Created by Aubrey Goodman on 4/8/19.
-//  Copyright © 2019 Aubrey Goodman. All rights reserved.
+//  SPDX-License-Identifier: MIT
+//  Copyright © 2019 Aubrey Goodman.
 //
 
 public protocol AbstractObject {

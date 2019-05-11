@@ -3,7 +3,8 @@
 //  PMVP
 //
 //  Created by Aubrey Goodman on 4/22/19.
-//  Copyright © 2019 Aubrey Goodman. All rights reserved.
+//  SPDX-License-Identifier: MIT
+//  Copyright © 2019 Aubrey Goodman.
 //
 
 open class MockRemoteStorage<K: Hashable, T: Proxy<K>, R: RemoteObject, E: Error>: RemoteStorage<K, R, T, E> {
