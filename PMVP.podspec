@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name		= 'PMVP'
-  spec.version		= '0.4.1'
+  spec.version		= '0.4.2'
   spec.license		= { :type => 'MIT' }
   spec.homepage		= 'https://github.com/agoodman/pmvp'
   spec.authors		= { 
@@ -36,6 +36,6 @@ of PMVP.
   spec.platform		= :ios
   spec.ios.deployment_target = '8.0'
   spec.ios.source_files	= "PMVP/**/*.{swift}"
-  spec.dependency	'RxSwift'
+  spec.dependency	'RxSwift', '~> 4.0'
 end
 
