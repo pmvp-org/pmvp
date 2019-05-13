@@ -44,7 +44,7 @@ text, images, view bounds, layout constraints, etc.
 ## Podfile
 
 ```
-pod 'PMVP', '~> 0.3'
+pod 'PMVP', '~> 0.4'
 ```
 
 ## Implement required components
@@ -68,7 +68,7 @@ Before you define the provider, you need to satisfy its dependencies. You need t
 Once these are defined, you can create the provider class, as follows:
 
 ```
-import RxSwift
+import PMVP
 
 class ItemProvider: Provider<Int, ItemProxy, ItemLocal, ItemRemote, ItemLocalStorage, ItemRemoteStorage> {
 }
@@ -95,11 +95,25 @@ itemProvider.object(for: 127)
 ### Creating/Updating items
 
 ```
-itemProvider.update(item, queue: .main) { result in NSLog("item updated \(result)") }
+itemProvider.update(item, queue: .main) { result in 
+  switch result {
+  case .success(let localItem):
+    NSLog("item updated \(localItem)")
+  case .failure(let error):
+    NSLog("failed to update item: \(error)")
+  }
+}
 ```
 
 ### Destroying an item
 
 ```
-itemProvider.destroy(item, queue: .main) { result in NSLog("item deleted \(result)") }
+itemProvider.destroy(item, queue: .main) { result in 
+  switch result {
+  case .success(let localItem):
+    NSLog("item deleted \(localItem)")
+  case .failure(let error):
+    NSLog("failed to delete item: \(error)")
+  }
+}
 ```
