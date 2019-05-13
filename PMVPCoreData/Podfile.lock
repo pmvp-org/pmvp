@@ -1,0 +1,20 @@
+PODS:
+  - PMVP (0.4.2):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.5.0)
+
+DEPENDENCIES:
+  - PMVP
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - PMVP
+    - RxSwift
+
+SPEC CHECKSUMS:
+  PMVP: 21681dd1cc6ae7b461de71305a34238f4ba3e586
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+
+PODFILE CHECKSUM: ad97dd6242dbc0469e29c7742af7de434b0783dd
+
+COCOAPODS: 1.6.1

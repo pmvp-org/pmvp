@@ -44,7 +44,6 @@
 		7EB4DE5C2270166C00EF2AFE /* KeyedSubjectHolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4DE5B2270166C00EF2AFE /* KeyedSubjectHolderTests.swift */; };
 		7EB4DE5E2270182500EF2AFE /* CollectionSubjectHolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4DE5D2270182500EF2AFE /* CollectionSubjectHolderTests.swift */; };
 		7EB4DE60227019F800EF2AFE /* KeyedCollectionSubjectHolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4DE5F227019F800EF2AFE /* KeyedCollectionSubjectHolderTests.swift */; };
-		7EB4DE6F227A709900EF2AFE /* CoreDataAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4DE6E227A709900EF2AFE /* CoreDataAccessor.swift */; };
 		7ECC5C17226E2DB70015A91B /* Trackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC5C16226E2DB70015A91B /* Trackable.swift */; };
 		7EF5582A227A7ED8009A5321 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55829227A7ED8009A5321 /* CoreDataTests.swift */; };
 		7EF5582C227A7F22009A5321 /* PlaylistAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5582B227A7F22009A5321 /* PlaylistAccessor.swift */; };
@@ -104,7 +103,6 @@
 		7EB4DE5B2270166C00EF2AFE /* KeyedSubjectHolderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedSubjectHolderTests.swift; sourceTree = "<group>"; };
 		7EB4DE5D2270182500EF2AFE /* CollectionSubjectHolderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSubjectHolderTests.swift; sourceTree = "<group>"; };
 		7EB4DE5F227019F800EF2AFE /* KeyedCollectionSubjectHolderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedCollectionSubjectHolderTests.swift; sourceTree = "<group>"; };
-		7EB4DE6E227A709900EF2AFE /* CoreDataAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccessor.swift; sourceTree = "<group>"; };
 		7ECC5C16226E2DB70015A91B /* Trackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trackable.swift; sourceTree = "<group>"; };
 		7EF55829227A7ED8009A5321 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		7EF5582B227A7F22009A5321 /* PlaylistAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistAccessor.swift; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 		7E1492AA225C342700A26743 = {
 			isa = PBXGroup;
 			children = (
-				7EB4DE6D227A706A00EF2AFE /* PMVP+CoreData */,
 				7E1492B6225C342700A26743 /* PMVP */,
 				7E1492C1225C342700A26743 /* PMVPTests */,
 				7E1492B5225C342700A26743 /* Products */,
@@ -247,14 +244,6 @@
 				7EB4DE5F227019F800EF2AFE /* KeyedCollectionSubjectHolderTests.swift */,
 			);
 			path = Holders;
-			sourceTree = "<group>";
-		};
-		7EB4DE6D227A706A00EF2AFE /* PMVP+CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				7EB4DE6E227A709900EF2AFE /* CoreDataAccessor.swift */,
-			);
-			path = "PMVP+CoreData";
 			sourceTree = "<group>";
 		};
 		7EF55828227A7EB2009A5321 /* CoreData */ = {
@@ -474,7 +463,6 @@
 				7E1492D5225C387E00A26743 /* Presenter.swift in Sources */,
 				7E6A664E226FF6070067F69B /* SubjectHolder.swift in Sources */,
 				7E1492E9225C3FFE00A26743 /* AbstractObject.swift in Sources */,
-				7EB4DE6F227A709900EF2AFE /* CoreDataAccessor.swift in Sources */,
 				7E6A664C226FF1200067F69B /* KeyedSubjectHolder.swift in Sources */,
 				7E1492CF225C344600A26743 /* ViewModelState.swift in Sources */,
 				7E6A6650226FF7D90067F69B /* CollectionSubjectHolder.swift in Sources */,

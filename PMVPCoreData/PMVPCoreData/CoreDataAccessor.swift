@@ -7,6 +7,7 @@
 //
 
 import CoreData
+import PMVP
 
 public enum CoreDataResult<ResultType, E: Error> {
 	case success(ResultType)
@@ -32,19 +33,21 @@ open class CoreDataAccessor<K: Hashable & Comparable, L: NSManagedObject & Local
 
 	final func objects(predicate: NSPredicate? = nil,
 				 sortDescriptors: [NSSortDescriptor] = [],
-				 limit: Int,
+				 limit: Int = 1000,
 				 queue: DispatchQueue,
-				 callback: @escaping (CoreDataResult<[L], E>) -> Void) {
+				 callback: @escaping (CoreDataResult<[P], E>) -> Void) {
 
 		let entityName = self.entityName
 		let context = self.contextFactory()
+		let converter = self.converter
 		context.perform {
 			let fetchRequest: NSFetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
 			fetchRequest.predicate = predicate
 			fetchRequest.fetchLimit = limit
 			fetchRequest.sortDescriptors = sortDescriptors
 			if let rawResults: [NSManagedObject] = try? context.fetch(fetchRequest), let results = rawResults as? [L] {
-				queue.async { callback(.success(results)) }
+				let proxies = results.map({ converter.toProxy($0) })
+				queue.async { callback(.success(proxies)) }
 			}
 			else {
 				queue.async { callback(.success([])) }
@@ -85,7 +88,7 @@ open class CoreDataAccessor<K: Hashable & Comparable, L: NSManagedObject & Local
 					self?.update(existing, with: obj)
 				}
 				else {
-					_ = self?.insert(obj, in: context)
+					self?.insert(obj, in: context)
 				}
 			}
 
