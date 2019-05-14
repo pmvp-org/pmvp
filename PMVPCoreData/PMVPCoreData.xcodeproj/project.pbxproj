@@ -87,9 +87,9 @@
 			isa = PBXGroup;
 			children = (
 				7EC82C8722888AD6002739F7 /* CoreDataAccessor.swift */,
+				7EC82CEE2288B17A002739F7 /* CoreDataLocalStorage.swift */,
 				7EC82C6E22888A1C002739F7 /* PMVPCoreData.h */,
 				7EC82C6F22888A1C002739F7 /* Info.plist */,
-				7EC82CEE2288B17A002739F7 /* CoreDataLocalStorage.swift */,
 			);
 			path = PMVPCoreData;
 			sourceTree = "<group>";

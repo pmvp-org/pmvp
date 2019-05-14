@@ -51,18 +51,18 @@ open class CoreDataLocalStorage<K: Hashable & Comparable, L: NSManagedObject & L
 	}
 
 	typealias ArrayResult = (Result<[P], E>) -> Void
-	override open func objects(for keys: [K], queue: DispatchQueue, callback: @escaping (Result<[P], E>) -> Void) {
+	override public final func objects(for keys: [K], queue: DispatchQueue, callback: @escaping (Result<[P], E>) -> Void) {
 		let predicate = NSPredicate(format: "\(keyName) in %@", keys as CVarArg)
 		let wrapperCallback: CoreDataCollectionResult = buildCollectionTransform(callback: callback)
 		accessor.objects(predicate: predicate, sortDescriptors: [], limit: keys.count, queue: storageQueue, callback: wrapperCallback)
 	}
 
-	override open func allObjects(queue: DispatchQueue, callback: @escaping (Result<[P], E>) -> Void) {
+	override public final func allObjects(queue: DispatchQueue, callback: @escaping (Result<[P], E>) -> Void) {
 		let wrapperCallback: CoreDataCollectionResult = buildCollectionTransform(callback: callback)
 		accessor.objects(queue: storageQueue, callback: wrapperCallback)
 	}
 
-	override open func update(_ proxy: P, queue: DispatchQueue, callback: @escaping (Result<P, E>) -> Void) {
+	override public final func update(_ proxy: P, queue: DispatchQueue, callback: @escaping (Result<P, E>) -> Void) {
 		let collectionInstanceTransform: (Result<[P], E>) -> Void = { collectionResult in
 			switch collectionResult {
 			case .success(let objects):
@@ -79,7 +79,7 @@ open class CoreDataLocalStorage<K: Hashable & Comparable, L: NSManagedObject & L
 		update([proxy], queue: queue, callback: collectionInstanceTransform)
 	}
 
-	override open func update(_ proxies: [P], queue: DispatchQueue, callback: @escaping (Result<[P], E>) -> Void) {
+	override public final func update(_ proxies: [P], queue: DispatchQueue, callback: @escaping (Result<[P], E>) -> Void) {
 		var proxyMap: [K: P] = [:]
 		proxyMap.reserveCapacity(proxies.count)
 		for proxy in proxies {
@@ -90,7 +90,7 @@ open class CoreDataLocalStorage<K: Hashable & Comparable, L: NSManagedObject & L
 		accessor.upsert(proxyMap, queue: queue, callback: wrapperCallback)
 	}
 
-	override open func destroy(_ object: P, queue: DispatchQueue, callback: @escaping (Result<P, E>) -> Void) {
+	override public final func destroy(_ object: P, queue: DispatchQueue, callback: @escaping (Result<P, E>) -> Void) {
 		let keys: [K] = [object.key]
 		let wrapperCallback: (CoreDataResult<[K], E>) -> Void = { coreDataResult in
 			switch coreDataResult {
@@ -103,7 +103,7 @@ open class CoreDataLocalStorage<K: Hashable & Comparable, L: NSManagedObject & L
 		accessor.destroyObjects(for: keys, queue: queue, callback: wrapperCallback)
 	}
 
-	override open func destroy(_ objects: [P], queue: DispatchQueue, callback: @escaping (Result<[P], E>) -> Void) {
+	override public final func destroy(_ objects: [P], queue: DispatchQueue, callback: @escaping (Result<[P], E>) -> Void) {
 		let keys: [K] = objects.map({ $0.key })
 		let wrapperCallback: (CoreDataResult<[K], E>) -> Void = { coreDataResult in
 			switch coreDataResult {

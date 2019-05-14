@@ -24,7 +24,7 @@ open class CoreDataAccessor<K: Hashable & Comparable, L: NSManagedObject & Local
 
 	private let converter: Converter<K, L, P>
 
-	init(contextFactory: @escaping () -> NSManagedObjectContext, entityName: String, keyName: String, converter: Converter<K, L, P>) {
+	public init(contextFactory: @escaping () -> NSManagedObjectContext, entityName: String, keyName: String, converter: Converter<K, L, P>) {
 		self.contextFactory = contextFactory
 		self.entityName = entityName
 		self.keyName = keyName
@@ -68,11 +68,16 @@ open class CoreDataAccessor<K: Hashable & Comparable, L: NSManagedObject & Local
 			var existing: [K: L] = [:]
 			existing.reserveCapacity(objects.count)
 
-			guard
-				let rawResults: [NSManagedObject] = try? context.fetch(fetchRequest),
-				let results = rawResults as? [L]
-			else {
-				queue.async { callback(.failure(nil)) }
+			let results: [L]
+			do {
+				guard let rawResults: [L] = try context.fetch(fetchRequest) as? [L] else {
+					queue.async { callback(CoreDataResult.failure(nil)) }
+					return
+				}
+				results = rawResults
+			}
+			catch let error {
+				queue.async { callback(.failure(error as? E)) }
 				return
 			}
 
@@ -109,11 +114,12 @@ open class CoreDataAccessor<K: Hashable & Comparable, L: NSManagedObject & Local
 			let fetchRequest: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
 			fetchRequest.predicate = NSPredicate(format: "\(keyName) in %@", keys)
 			let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-			if let _ = try? context.execute(deleteRequest) {
+			do {
+				_ = try context.execute(deleteRequest)
 				queue.async { callback(.success(keys)) }
 			}
-			else {
-				queue.async { callback(.failure(nil)) }
+			catch let error {
+				queue.async { callback(.failure(error as? E)) }
 			}
 		}
 	}
