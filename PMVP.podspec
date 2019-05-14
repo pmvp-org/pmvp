@@ -36,6 +36,7 @@ of PMVP.
   spec.platform		= :ios
   spec.ios.deployment_target = '8.0'
   spec.ios.source_files	= "PMVP/**/*.{swift}"
-  spec.dependency	'RxSwift'
+  spec.ios.exclude_files= "PMVP/Pods/**"
+  spec.dependency	'RxSwift', '~> 4.0'
 end
 

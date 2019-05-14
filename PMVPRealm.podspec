@@ -16,9 +16,11 @@ PMVPCoreData delivers Core Data fixture capabilities to enable managed objects t
   spec.source		= { :git => 'https://github.com/agoodman/pmvp.git', :tag => spec.version }
   spec.swift_version	= '4.0'
   spec.platform		= :ios
-  spec.ios.deployment_target = '8.0'
+  spec.ios.deployment_target = '9.0'
   spec.ios.source_files	= "PMVPRealm/**/*.{swift}"
+  spec.ios.exclude_files= "PMVPRealm/Pods/**"
   spec.dependency	'PMVP'
-  spec.dependency	'RealmSwift'
+  spec.dependency	'RxSwift', '~> 4.0'
+  spec.dependency	'RealmSwift', '~> 2.0'
 end
 

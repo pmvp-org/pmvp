@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name		= 'PMVPCoreData'
-  spec.version		= '0.2'
+  spec.version		= '0.1'
   spec.license		= { :type => 'MIT' }
   spec.homepage		= 'https://github.com/agoodman/pmvp'
   spec.authors		= { 
@@ -18,6 +18,7 @@ PMVPCoreData delivers Core Data fixture capabilities to enable managed objects t
   spec.platform		= :ios
   spec.ios.deployment_target = '9.0'
   spec.ios.source_files	= "PMVPCoreData/**/*.{swift}"
+  spec.ios.framework	= 'CoreData'
   spec.dependency	'PMVP'
 end
 
