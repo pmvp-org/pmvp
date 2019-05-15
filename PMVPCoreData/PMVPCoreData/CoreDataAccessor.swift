@@ -31,7 +31,7 @@ open class CoreDataAccessor<K: Hashable & Comparable, L: NSManagedObject & Local
 		self.converter = converter
 	}
 
-	final func objects(predicate: NSPredicate? = nil,
+	public final func objects(predicate: NSPredicate? = nil,
 				 sortDescriptors: [NSSortDescriptor] = [],
 				 limit: Int = 1000,
 				 queue: DispatchQueue,
@@ -55,7 +55,7 @@ open class CoreDataAccessor<K: Hashable & Comparable, L: NSManagedObject & Local
 		}
 	}
 
-	final func upsert(_ objects: [K: P], queue: DispatchQueue, callback: @escaping (CoreDataResult<[P], E>) -> Void) {
+	public final func upsert(_ objects: [K: P], queue: DispatchQueue, callback: @escaping (CoreDataResult<[P], E>) -> Void) {
 		let keyName = self.keyName
 		let entityName = self.entityName
 		let context = self.contextFactory()
@@ -106,7 +106,7 @@ open class CoreDataAccessor<K: Hashable & Comparable, L: NSManagedObject & Local
 		}
 	}
 
-	final func destroyObjects(for keys: [K], queue: DispatchQueue, callback: @escaping (CoreDataResult<[K], E>) -> Void) {
+	public final func destroyObjects(for keys: [K], queue: DispatchQueue, callback: @escaping (CoreDataResult<[K], E>) -> Void) {
 		let keyName = self.keyName
 		let entityName = self.entityName
 		let context = self.contextFactory()
