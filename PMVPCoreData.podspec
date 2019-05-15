@@ -1,12 +1,12 @@
 Pod::Spec.new do |spec|
   spec.name		= 'PMVPCoreData'
-  spec.version		= '0.1'
+  spec.version		= '0.5'
   spec.license		= { :type => 'MIT' }
   spec.homepage		= 'https://github.com/agoodman/pmvp'
   spec.authors		= { 
 				'Aubrey Goodman' => 'aubrey.goodman@gmail.com',
 			}
-  spec.summary		= 'Reactive data management tooling for iOS'
+  spec.summary		= 'Core Data fixtures for the PMVP framework'
   spec.description	= <<-DESC
 PMVPCoreData delivers Core Data fixture capabilities to enable managed objects to be used with PMVP providers easily.
 			DESC

@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name		= 'PMVP'
-  spec.version		= '0.4.2'
+  spec.version		= '0.5'
   spec.license		= { :type => 'MIT' }
   spec.homepage		= 'https://github.com/agoodman/pmvp'
   spec.authors		= { 
