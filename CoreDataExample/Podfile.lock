@@ -1,0 +1,33 @@
+PODS:
+  - PMVP (0.4.2):
+    - RxSwift (~> 4.0)
+  - PMVPCoreData (0.2):
+    - PMVP
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.5.0)
+
+DEPENDENCIES:
+  - PMVP
+  - PMVPCoreData (from `../PMVPCoreData`)
+  - RxCocoa
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - PMVP
+    - RxCocoa
+    - RxSwift
+
+EXTERNAL SOURCES:
+  PMVPCoreData:
+    :path: "../PMVPCoreData"
+
+SPEC CHECKSUMS:
+  PMVP: 21681dd1cc6ae7b461de71305a34238f4ba3e586
+  PMVPCoreData: 6167563d6b3d4374f01d1928b6799f19df01f1af
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+
+PODFILE CHECKSUM: 0f56871cad347cdb43c8de2b8dd107fe202dccfa
+
+COCOAPODS: 1.6.1

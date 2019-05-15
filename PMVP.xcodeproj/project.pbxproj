@@ -48,6 +48,11 @@
 		7EB4DE6A227805EA00EF2AFE /* LocalPagedStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4DE69227805EA00EF2AFE /* LocalPagedStorage.swift */; };
 		7EB4DE6C227806EC00EF2AFE /* RemotePagedStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4DE6B227806EC00EF2AFE /* RemotePagedStorage.swift */; };
 		7ECC5C17226E2DB70015A91B /* Trackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC5C16226E2DB70015A91B /* Trackable.swift */; };
+		7EF5582A227A7ED8009A5321 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55829227A7ED8009A5321 /* CoreDataTests.swift */; };
+		7EF5582C227A7F22009A5321 /* PlaylistAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5582B227A7F22009A5321 /* PlaylistAccessor.swift */; };
+		7EF5582F227A7F93009A5321 /* PlaylistModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5582D227A7F93009A5321 /* PlaylistModel.xcdatamodeld */; };
+		7EF55833227A806C009A5321 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF55832227A806C009A5321 /* CoreData.framework */; };
+		7EF55835227A80BD009A5321 /* Playlist+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55834227A80BD009A5321 /* Playlist+Extensions.swift */; };
 		87699565589E244EDB5A10C3 /* Pods_PMVPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA91BD3B69C46666D69C570 /* Pods_PMVPTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +110,11 @@
 		7EB4DE69227805EA00EF2AFE /* LocalPagedStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPagedStorage.swift; sourceTree = "<group>"; };
 		7EB4DE6B227806EC00EF2AFE /* RemotePagedStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePagedStorage.swift; sourceTree = "<group>"; };
 		7ECC5C16226E2DB70015A91B /* Trackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trackable.swift; sourceTree = "<group>"; };
+		7EF55829227A7ED8009A5321 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
+		7EF5582B227A7F22009A5321 /* PlaylistAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistAccessor.swift; sourceTree = "<group>"; };
+		7EF5582E227A7F93009A5321 /* PlaylistModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlaylistModel.xcdatamodel; sourceTree = "<group>"; };
+		7EF55832227A806C009A5321 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7EF55834227A80BD009A5321 /* Playlist+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Playlist+Extensions.swift"; sourceTree = "<group>"; };
 		80A2D1D5FF16E625B78A517D /* Pods_PMVP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PMVP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A122AAE1F8EA9856A95506AB /* Pods-PMVP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMVP.release.xcconfig"; path = "Target Support Files/Pods-PMVP/Pods-PMVP.release.xcconfig"; sourceTree = "<group>"; };
 		A6C075ED703E994EC6DD2A7C /* Pods-PMVPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMVPTests.release.xcconfig"; path = "Target Support Files/Pods-PMVPTests/Pods-PMVPTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EF55833227A806C009A5321 /* CoreData.framework in Frameworks */,
 				7E1492BE225C342700A26743 /* PMVP.framework in Frameworks */,
 				87699565589E244EDB5A10C3 /* Pods_PMVPTests.framework in Frameworks */,
 			);
@@ -137,6 +148,7 @@
 		57C944A0C83B691D2BFB2F8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7EF55832227A806C009A5321 /* CoreData.framework */,
 				80A2D1D5FF16E625B78A517D /* Pods_PMVP.framework */,
 				FFA91BD3B69C46666D69C570 /* Pods_PMVPTests.framework */,
 			);
@@ -197,6 +209,7 @@
 		7E1492C1225C342700A26743 /* PMVPTests */ = {
 			isa = PBXGroup;
 			children = (
+				7EF55828227A7EB2009A5321 /* CoreData */,
 				7EB4DE58227014AC00EF2AFE /* Holders */,
 				7E1492EA225C490A00A26743 /* Example */,
 				7E1492C4225C342700A26743 /* Info.plist */,
@@ -240,6 +253,17 @@
 				7EB4DE5F227019F800EF2AFE /* KeyedCollectionSubjectHolderTests.swift */,
 			);
 			path = Holders;
+			sourceTree = "<group>";
+		};
+		7EF55828227A7EB2009A5321 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				7EF55829227A7ED8009A5321 /* CoreDataTests.swift */,
+				7EF5582B227A7F22009A5321 /* PlaylistAccessor.swift */,
+				7EF5582D227A7F93009A5321 /* PlaylistModel.xcdatamodeld */,
+				7EF55834227A80BD009A5321 /* Playlist+Extensions.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		C9FA2C101353B559835B354C /* Pods */ = {
@@ -475,13 +499,17 @@
 				7EB4DE5C2270166C00EF2AFE /* KeyedSubjectHolderTests.swift in Sources */,
 				7E1492EC225C494400A26743 /* PlaylistProxy.swift in Sources */,
 				7EB4DE5E2270182500EF2AFE /* CollectionSubjectHolderTests.swift in Sources */,
+				7EF5582F227A7F93009A5321 /* PlaylistModel.xcdatamodeld in Sources */,
 				7E1492FC225C4DB900A26743 /* PlaylistRemoteConverter.swift in Sources */,
+				7EF55835227A80BD009A5321 /* Playlist+Extensions.swift in Sources */,
+				7EF5582A227A7ED8009A5321 /* CoreDataTests.swift in Sources */,
 				7E1492F4225C4B7200A26743 /* PlaylistRemoteObject.swift in Sources */,
 				7E1492F6225C4BCE00A26743 /* PlaylistProvider.swift in Sources */,
 				7EB4DE5A227014BD00EF2AFE /* SubjectHolderTests.swift in Sources */,
 				7E1492FA225C4C9000A26743 /* PlaylistLocalConverter.swift in Sources */,
 				7E1492F8225C4C3100A26743 /* ProviderTests.swift in Sources */,
 				7E1492FE225D8FCB00A26743 /* ProviderRxTests.swift in Sources */,
+				7EF5582C227A7F22009A5321 /* PlaylistAccessor.swift in Sources */,
 				7E1492EE225C498D00A26743 /* PlaylistLocalStorage.swift in Sources */,
 				7E149300225D90E500A26743 /* ProviderBase.swift in Sources */,
 				7E1492F2225C4B2F00A26743 /* PlaylistRemoteStorage.swift in Sources */,
@@ -749,6 +777,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7EF5582D227A7F93009A5321 /* PlaylistModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7EF5582E227A7F93009A5321 /* PlaylistModel.xcdatamodel */,
+			);
+			currentVersion = 7EF5582E227A7F93009A5321 /* PlaylistModel.xcdatamodel */;
+			path = PlaylistModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7E1492AB225C342700A26743 /* Project object */;
 }
