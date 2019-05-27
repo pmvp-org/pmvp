@@ -11,7 +11,7 @@ open class Converter<K: Hashable, T: AbstractObject, P: Proxy<K>> {
 
 	public init() {}
 
-	open func fromProxy(_ proxy: P) -> T {
+	open func copyInto(_ object: T, from proxy: P) {
 		fatalError("unimplemented \(#function)")
 	}
 
