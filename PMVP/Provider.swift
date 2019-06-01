@@ -80,6 +80,25 @@ open class Provider<K: Hashable, T: Proxy<K>, A: LocalObject, B: RemoteObject, E
 	open func didErrorOnNotify(_ error: Error?) {
 	}
 
+	open func notify(_ object: T?) {
+		guard let key = object?.key else { return }
+		let observable = subjectHolder.subject(for: key)
+		if let subject = observable as? BehaviorSubject<T?> {
+			subject.onNext(object)
+		}
+
+		if shouldNotifyAllOnUpdate() {
+			localStorage.allObjects(queue: storageQueue) { [weak self] (result) in
+				switch result {
+				case .success(let objects):
+					self?.collectionHolder.notify(objects)
+				case .failure(let error):
+					self?.didErrorOnNotify(error)
+				}
+			}
+		}
+	}
+
 	// MARK: - Basic ORM
 
 	public final func object(for key: K, queue: DispatchQueue, callback: @escaping (Result<T?, E>) -> Void) {
@@ -159,25 +178,6 @@ open class Provider<K: Hashable, T: Proxy<K>, A: LocalObject, B: RemoteObject, E
 	}
 
 	// MARK: - Private Helper Methods
-
-	private func notify(_ object: T?) {
-		guard let key = object?.key else { return }
-		let observable = subjectHolder.subject(for: key)
-		if let subject = observable as? BehaviorSubject<T?> {
-			subject.onNext(object)
-		}
-
-		if shouldNotifyAllOnUpdate() {
-			localStorage.allObjects(queue: storageQueue) { [weak self] (result) in
-				switch result {
-				case .success(let objects):
-					self?.collectionHolder.notify(objects)
-				case .failure(let error):
-					self?.didErrorOnNotify(error)
-				}
-			}
-		}
-	}
 
 	typealias OptionalInstanceCallback = (Result<T?, E>) -> Void
 	private func buildWrapper(using queue: DispatchQueue, for callback: @escaping OptionalInstanceCallback) -> OptionalInstanceCallback {
