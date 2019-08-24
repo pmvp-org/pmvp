@@ -12,9 +12,13 @@ public enum PagedStorageOrder {
 }
 
 public protocol PagedStorage {
-	associatedtype K: Comparable
+	associatedtype K: Comparable & Hashable
 	associatedtype T: Proxy<K>
 	associatedtype E: Error
 
-	func batchObjects(startingAt key: K, limit: Int, order: PagedStorageOrder, queue: DispatchQueue, callback: @escaping (Result<[T], E>) -> Void)
+	func batchObjects(startingAt key: K,
+					  limit: Int,
+					  order: PagedStorageOrder,
+					  queue: DispatchQueue,
+					  callback: @escaping (Result<[T], E>) -> Void)
 }
