@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C3F29CB6062104174D8F57D /* Pods_PMVP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A2D1D5FF16E625B78A517D /* Pods_PMVP.framework */; };
+		7E05E10E2292277E00818F08 /* InMemoryLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E05E10D2292277E00818F08 /* InMemoryLocalStorage.swift */; };
 		7E1492BE225C342700A26743 /* PMVP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1492B4225C342700A26743 /* PMVP.framework */; };
 		7E1492C5225C342700A26743 /* PMVP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E1492B7225C342700A26743 /* PMVP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E1492CF225C344600A26743 /* ViewModelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492CE225C344600A26743 /* ViewModelState.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E05E10D2292277E00818F08 /* InMemoryLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryLocalStorage.swift; sourceTree = "<group>"; };
 		7E1492B4225C342700A26743 /* PMVP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PMVP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1492B7225C342700A26743 /* PMVP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMVP.h; sourceTree = "<group>"; };
 		7E1492B8225C342700A26743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -155,6 +157,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7E05E10C2292276600818F08 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				7E05E10D2292277E00818F08 /* InMemoryLocalStorage.swift */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
 		7E1492AA225C342700A26743 = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +188,7 @@
 		7E1492B6225C342700A26743 /* PMVP */ = {
 			isa = PBXGroup;
 			children = (
+				7E05E10C2292276600818F08 /* Fixtures */,
 				7E6A6632226E69F70067F69B /* Mock */,
 				7E1492B7225C342700A26743 /* PMVP.h */,
 				7E1492B8225C342700A26743 /* Info.plist */,
@@ -471,6 +482,7 @@
 				7E1492D3225C348D00A26743 /* ViewModel.swift in Sources */,
 				7E1492D5225C387E00A26743 /* Presenter.swift in Sources */,
 				7E6A664E226FF6070067F69B /* SubjectHolder.swift in Sources */,
+				7E05E10E2292277E00818F08 /* InMemoryLocalStorage.swift in Sources */,
 				7E1492E9225C3FFE00A26743 /* AbstractObject.swift in Sources */,
 				7EB4DE6C227806EC00EF2AFE /* RemotePagedStorage.swift in Sources */,
 				7E6A664C226FF1200067F69B /* KeyedSubjectHolder.swift in Sources */,
