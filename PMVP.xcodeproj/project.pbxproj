@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C3F29CB6062104174D8F57D /* Pods_PMVP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A2D1D5FF16E625B78A517D /* Pods_PMVP.framework */; };
 		7E05E10E2292277E00818F08 /* InMemoryLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E05E10D2292277E00818F08 /* InMemoryLocalStorage.swift */; };
+		7E05E1102292315600818F08 /* FileSystemLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E05E10F2292315600818F08 /* FileSystemLocalStorage.swift */; };
 		7E1492BE225C342700A26743 /* PMVP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1492B4225C342700A26743 /* PMVP.framework */; };
 		7E1492C5225C342700A26743 /* PMVP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E1492B7225C342700A26743 /* PMVP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E1492CF225C344600A26743 /* ViewModelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1492CE225C344600A26743 /* ViewModelState.swift */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		7E05E10D2292277E00818F08 /* InMemoryLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryLocalStorage.swift; sourceTree = "<group>"; };
+		7E05E10F2292315600818F08 /* FileSystemLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemLocalStorage.swift; sourceTree = "<group>"; };
 		7E1492B4225C342700A26743 /* PMVP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PMVP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1492B7225C342700A26743 /* PMVP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMVP.h; sourceTree = "<group>"; };
 		7E1492B8225C342700A26743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				7E05E10D2292277E00818F08 /* InMemoryLocalStorage.swift */,
+				7E05E10F2292315600818F08 /* FileSystemLocalStorage.swift */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				7E1492D7225C3A3C00A26743 /* Proxy.swift in Sources */,
 				7EB4DE6A227805EA00EF2AFE /* LocalPagedStorage.swift in Sources */,
 				7E1492E5225C3F5200A26743 /* RemoteStorage.swift in Sources */,
+				7E05E1102292315600818F08 /* FileSystemLocalStorage.swift in Sources */,
 				7EB4DE682278055A00EF2AFE /* PagedStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
