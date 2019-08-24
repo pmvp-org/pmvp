@@ -71,19 +71,36 @@ open class InMemoryLocalStorage<K: Hashable, L: LocalObject, P: Proxy<K>, E: Err
 			var results: [P] = []
 			results.reserveCapacity(proxies.count)
 			for proxy in proxies {
-				let localObject: L = strongSelf.converter.fromProxy(proxy)
-				strongSelf.localObjectMap[proxy.key] = localObject
+				if let existingObject: L = strongSelf.localObjectMap[proxy.key] {
+					strongSelf.converter.copyInto(existingObject, from: proxy)
+					strongSelf.localObjectMap[proxy.key] = existingObject
+				}
+				else {
+					let localObject: L = strongSelf.build()
+					strongSelf.converter.copyInto(localObject, from: proxy)
+					strongSelf.localObjectMap[proxy.key] = localObject
+				}
 			}
 			queue.async { callback(.success(proxies)) }
 		}
 	}
 
-	override open func update(_ object: P, queue: DispatchQueue, callback: @escaping (Result<P, E>) -> Void) {
-		let converter = self.converter
+	override open func update(_ proxy: P, queue: DispatchQueue, callback: @escaping (Result<P, E>) -> Void) {
 		accessQueue.async { [weak self] in
-			let localObject: L = converter.fromProxy(object)
-			self?.localObjectMap[object.key] = localObject
-			queue.async { callback(.success(object)) }
+			guard let strongSelf = self else {
+				queue.async { callback(.failure(nil)) }
+				return
+			}
+			if let existingObject: L = strongSelf.localObjectMap[proxy.key] {
+				strongSelf.converter.copyInto(existingObject, from: proxy)
+				strongSelf.localObjectMap[proxy.key] = existingObject
+			}
+			else {
+				let localObject: L = strongSelf.build()
+				strongSelf.converter.copyInto(localObject, from: proxy)
+				strongSelf.localObjectMap[proxy.key] = localObject
+			}
+			queue.async { callback(.success(proxy)) }
 		}
 	}
 
@@ -101,6 +118,10 @@ open class InMemoryLocalStorage<K: Hashable, L: LocalObject, P: Proxy<K>, E: Err
 			self?.localObjectMap.removeValue(forKey: proxy.key)
 			queue.async { callback(.success(proxy)) }
 		}
+	}
+
+	open func build() -> L {
+		fatalError("unimplemented")
 	}
 
 }
