@@ -10,11 +10,11 @@ Pod::Spec.new do |spec|
   spec.description	= <<-DESC
 PMVPCoreData delivers Core Data fixture capabilities to enable managed objects to be used with PMVP providers easily.
 			DESC
-  spec.source		= { :git => 'https://github.com/agoodman/pmvp.git', :tag => spec.version }
+  spec.source		= { :git => 'https://github.com/agoodman/pmvp.git', :branch => 'master' }
   spec.swift_version	= '4.0'
   spec.platform		= :ios
   spec.ios.deployment_target = '9.0'
-  spec.ios.source_files	= "PMVPCoreData/**/*.{swift}"
+  spec.ios.source_files	= "swift-pod/PMVPCoreData/**/*.{swift}"
   spec.ios.framework	= 'CoreData'
   spec.dependency	'PMVP'
 end

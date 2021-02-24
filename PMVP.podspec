@@ -31,11 +31,11 @@ to no exposure to Rx, they were able to adapt, refine, and champion the architec
 We are proud of our 4.5 star rating, and we believe it demonstrates the awesome power 
 of PMVP.
 			DESC
-  spec.source		= { :git => 'https://github.com/agoodman/pmvp.git', :tag => spec.version }
+  spec.source		= { :git => 'https://github.com/agoodman/pmvp.git', :branch => 'master' }
   spec.swift_version	= '4.0'
   spec.platform		= :ios
   spec.ios.deployment_target = '8.0'
-  spec.ios.source_files	= "PMVP/**/*.{swift}"
+  spec.ios.source_files	= "swift-pod/PMVP/**/*.{swift}"
   spec.dependency	'RxSwift', '~> 4.0'
 end
 
