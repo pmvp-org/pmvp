@@ -1,5 +1,6 @@
 package org.pmvp
 
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
@@ -8,6 +9,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 
+@ExperimentalCoroutinesApi
 class StaticStorageTest {
 
     private data class Item(

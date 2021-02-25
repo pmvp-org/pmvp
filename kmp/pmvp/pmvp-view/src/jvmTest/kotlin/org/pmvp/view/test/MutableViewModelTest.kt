@@ -1,5 +1,7 @@
 package org.pmvp.view.test
 
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
@@ -13,6 +15,8 @@ import org.pmvp.view.MutableViewModelState
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
+@FlowPreview
+@ExperimentalCoroutinesApi
 class MutableViewModelTest {
 
     private data class ItemModel(

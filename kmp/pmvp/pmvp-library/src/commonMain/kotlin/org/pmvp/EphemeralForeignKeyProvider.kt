@@ -21,7 +21,7 @@ open class EphemeralForeignKeyProvider<FK, K, T: Proxy<K>>(
     /*
      * Ephemeral providers do not sync
      */
-    final override fun syncUsing(foreignKey: FK, orchestrator: FKSyncOrchestrator<FK, K, T>): Flow<Float> =
+    final override fun syncUsing(foreignKey: FK, orchestrator: ForeignKeySyncOrchestrator<FK, K, T>): Flow<Float> =
         flowOf(1.0f)
 
 }

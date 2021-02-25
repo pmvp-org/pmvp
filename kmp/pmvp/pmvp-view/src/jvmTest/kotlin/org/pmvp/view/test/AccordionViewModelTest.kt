@@ -1,5 +1,7 @@
 package org.pmvp.view.test
 
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.first
 import org.junit.Test
 import kotlinx.coroutines.test.runBlockingTest
@@ -8,6 +10,8 @@ import org.pmvp.view.AccordionViewModel
 import org.pmvp.view.AccordionViewModelIntent
 import kotlin.test.assertEquals
 
+@FlowPreview
+@ExperimentalCoroutinesApi
 class AccordionViewModelTest {
     private class ItemSourceTestImpl: AccordionItemSource {
         override fun numberOfSections(): Int {

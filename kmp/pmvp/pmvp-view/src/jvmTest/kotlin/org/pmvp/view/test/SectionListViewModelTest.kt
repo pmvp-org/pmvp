@@ -1,6 +1,7 @@
 package org.pmvp.view.test
 
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.flow.asFlow
@@ -13,6 +14,7 @@ import kotlin.test.assertEquals
 import kotlin.test.asserter
 
 @FlowPreview
+@ExperimentalCoroutinesApi
 class SectionListViewModelTest {
 
     private enum class Item(val key: String) : ListItem {

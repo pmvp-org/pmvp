@@ -1,12 +1,16 @@
 package org.pmvp.view
 
 import androidx.fragment.app.Fragment
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 
 /**
  * Fragment binding fixture for [MutableListViewModel]
  *
  * Activates or cancels a consumer for the [MutableListViewModel.elements] flow.
  */
+@FlowPreview
+@ExperimentalCoroutinesApi
 interface MutableListFragmentFixture<T> {
 
     /**

@@ -31,7 +31,7 @@ open class ForeignKeyProvider<FK, K, T: Proxy<K>>(
 
     override fun syncUsing(
         foreignKey: FK,
-        orchestrator: FKSyncOrchestrator<FK, K, T>
+        orchestrator: ForeignKeySyncOrchestrator<FK, K, T>
     ): Flow<Float> {
         orchestrator.register(localStorage, remoteStorage)
         return orchestrator.performSync(foreignKey = foreignKey)

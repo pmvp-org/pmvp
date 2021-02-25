@@ -7,5 +7,5 @@ interface Syncable<K, T : Proxy<K>> {
 }
 
 interface ForeignKeySyncable<FK, K, T : Proxy<K>> {
-    fun syncUsing(foreignKey: FK, orchestrator: FKSyncOrchestrator<FK, K, T>): Flow<Float>
+    fun syncUsing(foreignKey: FK, orchestrator: ForeignKeySyncOrchestrator<FK, K, T>): Flow<Float>
 }

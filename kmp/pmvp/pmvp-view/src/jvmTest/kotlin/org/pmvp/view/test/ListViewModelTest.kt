@@ -1,6 +1,7 @@
 package org.pmvp.view.test
 
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.flow.asFlow
@@ -14,6 +15,7 @@ import org.pmvp.view.ListViewModelIntent
 import org.pmvp.view.ListViewModelState
 import kotlin.test.assertEquals
 
+@ExperimentalCoroutinesApi
 @FlowPreview
 class ListViewModelTest {
 
@@ -23,7 +25,6 @@ class ListViewModelTest {
         LAMP("lamp")
     }
 
-    @FlowPreview
     private class ItemListViewModel(
         scope: CoroutineScope
     ) : ListViewModel<Item, ListViewModelIntent<Item>>(

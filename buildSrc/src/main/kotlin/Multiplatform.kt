@@ -12,9 +12,6 @@ fun Project.applyMultiplatform() {
 
     configure<LibraryExtension> {
         compileSdkVersion(Versions.Android.sdk)
-//        defaultConfig {
-//
-//        }
     }
 
     configure<KotlinMultiplatformExtension> {
@@ -26,11 +23,7 @@ fun Project.applyMultiplatform() {
             named("commonMain") {
                 dependencies {
                     implementation(Dependencies.Kotlin.core)
-//                    implementation("kotlin serialization json")
                     implementation(Dependencies.Ktor.core)
-//                    implementation("ktor logging")
-//                    implementation("ktor client json")
-//                    implementation("ktor client serialization")
                 }
             }
 
@@ -48,6 +41,7 @@ fun Project.applyMultiplatform() {
                 }
             }
         }
+
     }
 
 }

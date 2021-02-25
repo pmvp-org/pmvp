@@ -12,11 +12,11 @@ import kotlinx.coroutines.flow.onEach
 
 interface ListItem
 
-enum class ListViewModelState(key: String) : ViewModelState {
-    Loading("loading"),
-    Selecting("selecting"),
-    Selected("selected"),
-    Canceled("canceled")
+enum class ListViewModelState : ViewModelState {
+    Loading,
+    Selecting,
+    Selected,
+    Canceled
 }
 
 open class ListViewModelIntent<T : ListItem> :
@@ -101,7 +101,7 @@ open class ListViewModel<T : ListItem, N: ListViewModelIntent<T>>(
     override fun onIntent(intent: N) {
         when (intent) {
             is ListViewModelIntent.Register<*> -> registerSource(intent.itemSource as Flow<List<T>>)
-            is ListViewModelIntent.Unregister<*> -> disposeSource()
+            is ListViewModelIntent.Unregister<*> -> unregister()
             is ListViewModelIntent.Select<*> -> selectItem(intent.selectedItem as T)
             is ListViewModelIntent.Clear<*> -> clearSelection()
             is ListViewModelIntent.Confirm<*> -> confirmSelection()

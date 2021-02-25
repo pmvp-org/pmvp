@@ -1,12 +1,16 @@
 package org.pmvp.view.test
 
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 import org.pmvp.view.*
 import kotlin.test.assertEquals
 
+@FlowPreview
+@ExperimentalCoroutinesApi
 class MutableListViewModelTest {
 
     private class ItemListViewModel(
