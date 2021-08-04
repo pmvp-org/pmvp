@@ -1,0 +1,5 @@
+include(":pmvp-ktor")
+include(":pmvp-view")
+include(":pmvp-library")
+include(":pmvp-sqldelight")
+include(":pmvp-ext")
