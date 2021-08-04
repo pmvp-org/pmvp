@@ -1,0 +1,22 @@
+// An implementation of the gradle remote cache
+// that can be shared between developers and CI
+// Docs https://docs.gradle.com/build-cache-node/
+ext.isCiServer = System.getenv().getOrDefault("CI", false)
+
+// see gradle.properties file for the property
+def remoteUrl = getProperty("GRADLE_REMOTE_CACHE_URL")
+println "Remote build cache URL: $remoteUrl, is CI: $isCiServer"
+
+buildCache {
+    local {
+        // local cache should be disabled on CI
+        enabled = !isCiServer
+    }
+    remote(HttpBuildCache) {
+        enabled = remoteUrl != null
+        url = remoteUrl
+        allowUntrustedServer = true
+        // only CI should contribute to the cache
+        push = isCiServer
+    }
+}
